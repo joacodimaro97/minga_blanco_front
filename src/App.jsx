@@ -31,7 +31,7 @@ function App() {
           <h1 class="text-white hidden sm:block sm:text-center sm: text-[2rem] sm:font-bold md:text-[4rem] md:text-gray-300 z-10">
             Best manga reader
           </h1>
-          <img className="absolute z-0 sm:hidden" src={naruto} alt="" />
+          <img className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] z-0 sm:hidden" src={naruto} alt="" />
           <div className="flex h-[60%] items-center  w-full  sm: justify-around z-10 ">
             
             <img
@@ -73,7 +73,7 @@ function App() {
             </div>
           </div>
         </main>
-        <footer className="bg-white w-screen h-[20vh] flex flex-col sm:w-full">
+        <footer className="bg-black w-screen h-[20vh] flex flex-col sm:w-full">
           <div className=""></div>
         </footer>
       </div>
