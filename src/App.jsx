@@ -1,11 +1,28 @@
 import logo from "./assets/images/logo.png";
 import narutodos from "./assets/images/mangashero.png";
 import naruto from "./assets/images/narutofon.png";
+import footer from "./assets/images/footer.png";
+import logoface from "./assets/images/face.png";
+import logotweet from "./assets/images/bird.png";
+import logovimo from "./assets/images/vimeo.png";
+import logoyout from "./assets/images/yt.png";
+import carru1 from "./assets/images/carru1.png";
+import carru2 from "./assets/images/carru2.png";
+import carru3 from "./assets/images/carru3.png";
+import carru4 from "./assets/images/carru4.png";
+import carru5 from "./assets/images/carru5.png";
+import carru6 from "./assets/images/carru6.png";
+import carru7 from "./assets/images/carru7.png";
+import carru8 from "./assets/images/carru8.png";
+import carru9 from "./assets/images/carru9.png";
+import carru10 from "./assets/images/carru10.png";
+
+
 
 function App() {
   return (
     <>
-      <div className="min-h-screen w-full  bg-[#000]">
+      <div className="min-h-screen w-full  bg-[#040404]">
         <nav className="w-full h-[70px] p-4 flex bg-[#000]  justify-between">
           <button className="contents cursor-pointer">
             <svg
@@ -27,15 +44,15 @@ function App() {
         </nav>
         <div className="sm:h-[100%] sm:w-[50%] sm:rounded-full sm:bg-gradient-to-r from-black to-indigo-900 blur-[115px] absolute right-0 z-0"></div>
 
-        <main className="min-w-full flex flex-col h-[100vh]  p-4 justify-center align-center sm:z-1 sm:justify-evenly md:bg-fondoOscuro md:bg-fondo">
+        <main className="min-w-full flex flex-col  min-h-[120vh]  p-4 justify-between items-center sm:z-1 sm:justify-evenly md:h-[100vh] md:bg-fondoOscuro md:bg-fondo">
           <h1 class="text-white hidden sm:block sm:text-center sm: text-[2rem] sm:font-bold md:text-[4rem] md:text-gray-300 z-10">
             Best manga reader
           </h1>
-          <img className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] z-0 sm:hidden" src={naruto} alt="" />
-          <div className="flex h-[60%] items-center  w-full  sm: justify-around z-10 ">
+          <img className="opacity-40 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] z-0 sm:hidden" src={naruto} alt="" />
+          <div className=" flex h-[60%] items-center  w-full  sm: justify-around z-10 ">
             
             <img
-              className="hidden sm:flex h-[18] w-[18rem] md:w-[38vw] md:h-[20rem] lg:w-[35rem] lg:h-[30rem]"
+              className="hidden sm:flex h-[18] w-[18rem] md:w-[38vw] md:h-[20rem] lg:w-[35rem] lg:h-[30rem] opacity-80"
               src={narutodos}
               alt=""
             />
@@ -43,14 +60,14 @@ function App() {
               <h1 className="text-white text-[32px] text-center font-semibold font-inter  w-full py-2 md:text-[2rem] md:text-left">
                 Your favourite <br /> manga reader 😏
               </h1>
-              <p className="text-white py-2 text-center w-full sm:text-left sm:text-[1rem]">
-                is an exceptional app for all manga lovers. With a wide range of
+              <p className=" text-white py-2 text-center w-full sm:text-left sm:text-[1rem]">
+                Is an exceptional app for all manga lovers. With a wide range of
                 titles available, from classics to the latest releases, this app
                 is perfect for those who want to read manga anytime, anywhere.
               </p>
-              <div class="relative flex items-center rounded-md backdrop-blur-[15px]md:w-[100%]">
+              <div class="border border-solid border-gray-500 relative flex items-center rounded-md backdrop-blur-[15px]md:w-[100%]">
                 <input
-                  class="py-2 w-90 pl-10 bg-transparent text-center placeholder-white sm:w-[100%] md:w-[20rem]"
+                  class=" py-2 w-90 pl-10 bg-transparent text-center placeholder-white sm:w-[100%] md:w-[20rem]"
                   type="text"
                   placeholder="Search mangas"
                 />
@@ -72,9 +89,28 @@ function App() {
               </div>
             </div>
           </div>
+          <a className="text-white z-10 text-center bg-[#4338CA] h-10 p-2 w-[10rem] rounded-[6%]" href="">Get Started</a>
+          <div className="w-100 h-[40vh] bg-black z-1 flex justify-center">
+          <img className="absolute w-[150px]  z-10 rotate-[1.92deg] hover:transform-2" src={carru9} alt="" />
+          <img className="absolute w-[150px]  z-9 rotate-[-21.02deg] hover:transform-2" src={carru10} alt="" />
+          <img className="absolute w-[150px]  z-8 rotate-[12.07deg] hover:transform-2" src={carru8} alt="" />
+          <img className="absolute w-[150px]  z-6 rotate-[14.32deg] hover:transform-2" src={carru5} alt="" />
+          <img className="absolute w-[150px]  z-4 rotate-[-8.97deg] hover:transform-2" src={carru7} alt="" />
+          
+          </div>
         </main>
-        <footer className="bg-black w-screen h-[20vh] flex flex-col sm:w-full">
-          <div className=""></div>
+        <footer className="w-screen p-2 min-h-[45vh] flex flex-col justify-around items-center sm:w-full">
+          <img className="rounded-[100%_100%_100%_100%/_0%_0%_100%_100%]" src={footer} alt="" />
+          <a className="text-white text-[25px]" href="">Home</a>
+          <a className="text-white text-[25px]" href="">Mangas</a>
+          <img className="w-[90px] h-[46px]" src={logo} alt="" />
+          <div className="flex p-2 flex-row w-screen justify-around">
+          <a className="text-white" href=""><img className="w-6" src={logoface} alt="" /></a>
+          <a className="text-white" href=""><img className="w-6" src={logotweet} alt="" /></a>
+          <a className="text-white" href=""><img className="w-6" src={logovimo} alt="" /></a>
+          <a className="text-white" href=""><img className="w-6" src={logoyout} alt="" /></a>
+          </div>
+          <a className="text-center p-1 text-black rounded-40 bg-white h-[35px] rounded-[5%] w-[220px]" href="">Donate ♡</a>
         </footer>
       </div>
     </>
