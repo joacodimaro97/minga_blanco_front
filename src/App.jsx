@@ -1,7 +1,7 @@
 import logo from "./assets/images/logo.png";
 import narutodos from "./assets/images/mangashero.png";
 import naruto from "./assets/images/narutofon.png";
-import footer from "./assets/images/footer.png";
+import footer from "./assets/images/Footer.png";
 import logoface from "./assets/images/face.png";
 import logotweet from "./assets/images/bird.png";
 import logovimo from "./assets/images/vimeo.png";
@@ -60,7 +60,7 @@ function App() {
               <h1 className="text-white text-[32px] text-center font-semibold font-inter  w-full py-2 md:text-[2rem] md:text-left">
                 Your favourite <br /> manga reader 😏
               </h1>
-              <p className=" text-white py-2 text-center w-[80%] sm:text-left sm:text-[1rem]">
+              <p className=" text-white py-2 text-center w-[80%l] sm:text-left sm:text-[1rem]">
                 Is an exceptional app for all manga lovers. With a wide range of
                 titles available, from classics to the latest releases, this app
                 is perfect for those who want to read manga anytime, anywhere.
