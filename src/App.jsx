@@ -1,7 +1,6 @@
 import logo from "./assets/images/logo.png";
 import narutodos from "./assets/images/mangashero.png";
 import naruto from "./assets/images/narutofon.png";
-import footerFondo from "./assets/images/footer.png";
 import logoface from "./assets/images/face.png";
 import logotweet from "./assets/images/bird.png";
 import logovimo from "./assets/images/vimeo.png";
@@ -105,7 +104,7 @@ function App() {
           </div>
         </main>
         <footer className="w-screen p-2 min-h-[45vh] flex flex-col justify-around items-center sm:w-full sm:min-h-[50vh] sm:p-0">
-          <img className="rounded-[100%_100%_100%_100%/_0%_0%_100%_100%] lg:w-full" src={footerFondo} alt="" />
+          <img className="rounded-[100%_100%_100%_100%/_0%_0%_100%_100%] lg:w-full" src="" alt="" />
           <div className="w-full p-2 min-h-[45vh] flex flex-col justify-around items-center sm:w-full sm:min-h-[20vh] sm:p-0 md:w-[70%] md:border-b-[0.6px] border-[#5d5a5a] md:flex-row md-p-1">        
           <a className="text-white text-[25px]" href="">Home</a>
           <a className="text-white text-[25px]" href="">Mangas</a>
