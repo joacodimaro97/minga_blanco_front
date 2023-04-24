@@ -5,16 +5,8 @@ import logoface from "./assets/images/face.png";
 import logotweet from "./assets/images/bird.png";
 import logovimo from "./assets/images/vimeo.png";
 import logoyout from "./assets/images/yt.png";
-import carru1 from "./assets/images/carru1.png";
-import carru2 from "./assets/images/carru2.png";
-import carru3 from "./assets/images/carru3.png";
-import carru4 from "./assets/images/carru4.png";
-import carru5 from "./assets/images/carru5.png";
-import carru6 from "./assets/images/carru6.png";
-import carru7 from "./assets/images/carru7.png";
-import carru8 from "./assets/images/carru8.png";
-import carru9 from "./assets/images/carru9.png";
-import carru10 from "./assets/images/carru10.png";
+import footImg from "./assets/images/foot.png";
+
 
 
 
@@ -26,7 +18,7 @@ import carru10 from "./assets/images/carru10.png";
 function App() {
   return (
     <>
-      <div className="min-h-screen w-full  bg-[#040404]">
+      
         <nav className="w-full h-[70px] p-4 flex bg-[#000]  justify-between">
           <button className="contents cursor-pointer">
             <svg
@@ -47,8 +39,8 @@ function App() {
           <img src={logo} alt="" className="items-end" />
         </nav>
         <div className="sm:h-[100%] sm:w-[50%] sm:rounded-full sm:bg-gradient-to-r from-[#121226] to-[#0b094a] blur-[115px] absolute right-0 z-0"></div>
-
-        <main className="min-w-full flex flex-col  min-h-[120vh]  p-4 justify-between items-center sm:min-h-[10vh] sm:z-1 sm:justify-evenly md:min-h-[200vh] md:bg-fondoOscuro md:bg-fondo 2xl:min-h-[220vh]">
+        
+        <main className="bg-black min-w-full flex flex-col  min-h-[120vh]  p-4 justify-between items-center sm:min-h-[10vh] sm:z-1 sm:justify-evenly md:min-h-[90vh] md:bg-fondoOscuro md:bg-fondo 2xl:min-h-[220vh]">
           <h1 class="text-white hidden sm:block sm:text-center sm: text-[2rem] sm:font-bold md:text-[4rem] md:text-gray-300 z-10">
             Best manga reader
           </h1>
@@ -72,7 +64,7 @@ function App() {
               <div class="border border-solid border-gray-500 relative flex items-center rounded-md backdrop-blur-[15px]md:w-[100%]">
                 <input
                   class=" py-2 w-90 pl-10 bg-transparent text-center placeholder-white sm:w-[100%] md:w-[20rem]"
-                  type="text"
+                  type="search"
                   placeholder="Search mangas"
                 />
                 <svg
@@ -93,18 +85,10 @@ function App() {
               </div>
             </div>
           </div>
-          <a className="text-white z-10 text-center bg-[#4338CA] h-10 p-2 w-[10rem] rounded-[6%]" href="">Get Started</a>
-          <div className="w-100 h-[50vh] bg-black z-1 flex justify-center 2xl:h-[100vh]">
-          <img className="absolute w-[150px]  z-10 rotate-[1.92deg] sm:w-[250px]  2xl:w-[300px]" src={carru9} alt="" />
-          <img className="absolute w-[150px]  z-9 rotate-[-21.02deg] sm:w-[250px]  2xl:w-[300px]" src={carru10} alt="" />
-          <img className="absolute w-[150px]  z-8 rotate-[12.07deg] sm:w-[250px]  2xl:w-[300px]" src={carru8} alt="" />
-          <img className="absolute w-[150px]  z-6 rotate-[14.32deg] sm:w-[250px]  2xl:w-[300px]" src={carru5} alt="" />
-          <img className="absolute w-[150px]  z-4 rotate-[-8.97deg] sm:w-[250px]  2xl:w-[300px]" src={carru7} alt="" />
           
-          </div>
         </main>
-        <footer className="w-screen p-2 min-h-[45vh] flex flex-col justify-around items-center sm:w-full sm:min-h-[50vh] sm:p-0">
-          <img className="rounded-[100%_100%_100%_100%/_0%_0%_100%_100%] lg:w-full" src="" alt="" />
+        <footer className="bg-black  w-screen p-2 min-h-[45vh] flex flex-col justify-around items-center sm:w-full sm:min-h-[50vh] sm:p-0">
+          <img className="rounded-[100%_100%_100%_100%/_0%_0%_100%_100%] lg:w-full" src={footImg} alt="" />
           <div className="w-full p-2 min-h-[45vh] flex flex-col justify-around items-center sm:w-full sm:min-h-[20vh] sm:p-0 md:w-[70%] md:border-b-[0.6px] border-[#5d5a5a] md:flex-row md-p-1">        
           <a className="text-white text-[25px]" href="">Home</a>
           <a className="text-white text-[25px]" href="">Mangas</a>
@@ -120,7 +104,7 @@ function App() {
           </div>
           </div> 
         </footer>
-      </div>
+      
     </>
   );
 }
