@@ -42,14 +42,14 @@ function App() {
           </button>
           <img src={logo} alt="" className="items-end" />
         </nav>
-        <div className="sm:h-[100%] sm:w-[50%] sm:rounded-full sm:bg-gradient-to-r from-black to-indigo-900 blur-[115px] absolute right-0 z-0"></div>
+        <div className="sm:h-[100%] sm:w-[50%] sm:rounded-full sm:bg-gradient-to-r from-[#121226] to-[#0b094a] blur-[115px] absolute right-0 z-0"></div>
 
-        <main className="min-w-full flex flex-col  min-h-[120vh]  p-4 justify-between items-center sm:z-1 sm:justify-evenly md:h-[100vh] md:bg-fondoOscuro md:bg-fondo">
+        <main className="min-w-full flex flex-col  min-h-[120vh]  p-4 justify-between items-center sm:min-h-[140vh] sm:z-1 sm:justify-evenly md:min-h-[150vh] md:bg-fondoOscuro md:bg-fondo 2xl:min-h-[220vh]">
           <h1 class="text-white hidden sm:block sm:text-center sm: text-[2rem] sm:font-bold md:text-[4rem] md:text-gray-300 z-10">
             Best manga reader
           </h1>
           <img className="opacity-40 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] z-0 sm:hidden" src={naruto} alt="" />
-          <div className=" flex h-[60%] items-center  w-full  sm: justify-around z-10 ">
+          <div className=" flex h-[60%] items-center  w-full  sm: justify-around z-10  md:h-[40%]">
             
             <img
               className="hidden sm:flex h-[18] w-[18rem] md:w-[38vw] md:h-[20rem] lg:w-[35rem] lg:h-[30rem] opacity-80"
@@ -60,7 +60,7 @@ function App() {
               <h1 className="text-white text-[32px] text-center font-semibold font-inter  w-full py-2 md:text-[2rem] md:text-left">
                 Your favourite <br /> manga reader 😏
               </h1>
-              <p className=" text-white py-2 text-center w-full sm:text-left sm:text-[1rem]">
+              <p className=" text-white py-2 text-center w-[80%] sm:text-left sm:text-[1rem]">
                 Is an exceptional app for all manga lovers. With a wide range of
                 titles available, from classics to the latest releases, this app
                 is perfect for those who want to read manga anytime, anywhere.
@@ -90,27 +90,31 @@ function App() {
             </div>
           </div>
           <a className="text-white z-10 text-center bg-[#4338CA] h-10 p-2 w-[10rem] rounded-[6%]" href="">Get Started</a>
-          <div className="w-100 h-[40vh] bg-black z-1 flex justify-center">
-          <img className="absolute w-[150px]  z-10 rotate-[1.92deg] hover:transform-2" src={carru9} alt="" />
-          <img className="absolute w-[150px]  z-9 rotate-[-21.02deg] hover:transform-2" src={carru10} alt="" />
-          <img className="absolute w-[150px]  z-8 rotate-[12.07deg] hover:transform-2" src={carru8} alt="" />
-          <img className="absolute w-[150px]  z-6 rotate-[14.32deg] hover:transform-2" src={carru5} alt="" />
-          <img className="absolute w-[150px]  z-4 rotate-[-8.97deg] hover:transform-2" src={carru7} alt="" />
+          <div className="w-100 h-[50vh] bg-black z-1 flex justify-center 2xl:h-[100vh]">
+          <img className="absolute w-[150px]  z-10 rotate-[1.92deg] sm:w-[250px]  2xl:w-[300px]" src={carru9} alt="" />
+          <img className="absolute w-[150px]  z-9 rotate-[-21.02deg] sm:w-[250px]  2xl:w-[300px]" src={carru10} alt="" />
+          <img className="absolute w-[150px]  z-8 rotate-[12.07deg] sm:w-[250px]  2xl:w-[300px]" src={carru8} alt="" />
+          <img className="absolute w-[150px]  z-6 rotate-[14.32deg] sm:w-[250px]  2xl:w-[300px]" src={carru5} alt="" />
+          <img className="absolute w-[150px]  z-4 rotate-[-8.97deg] sm:w-[250px]  2xl:w-[300px]" src={carru7} alt="" />
           
           </div>
         </main>
-        <footer className="w-screen p-2 min-h-[45vh] flex flex-col justify-around items-center sm:w-full">
-          <img className="rounded-[100%_100%_100%_100%/_0%_0%_100%_100%]" src={footer} alt="" />
+        <footer className="w-screen p-2 min-h-[45vh] flex flex-col justify-around items-center sm:w-full sm:min-h-[50vh] sm:p-0">
+          <img className="rounded-[100%_100%_100%_100%/_0%_0%_100%_100%] lg:w-full" src={footer} alt="" />
+          <div className="w-full p-2 min-h-[45vh] flex flex-col justify-around items-center sm:w-full sm:min-h-[20vh] sm:p-0 md:w-[70%] md:border-b-[0.6px] border-[#5d5a5a] md:flex-row md-p-1">        
           <a className="text-white text-[25px]" href="">Home</a>
           <a className="text-white text-[25px]" href="">Mangas</a>
           <img className="w-[90px] h-[46px]" src={logo} alt="" />
-          <div className="flex p-2 flex-row w-screen justify-around">
+          <div className="w-screen p-2 h-[10vh] flex flex-col justify-around items-center sm:w-[35%] sm:min-h-[10vh] sm:p-0 md:flex-col">
+          <div className="flex w-full p-2 flex-row  justify-around">
           <a className="text-white" href=""><img className="w-6" src={logoface} alt="" /></a>
           <a className="text-white" href=""><img className="w-6" src={logotweet} alt="" /></a>
           <a className="text-white" href=""><img className="w-6" src={logovimo} alt="" /></a>
           <a className="text-white" href=""><img className="w-6" src={logoyout} alt="" /></a>
           </div>
           <a className="text-center p-1 text-black rounded-40 bg-white h-[35px] rounded-[5%] w-[220px]" href="">Donate ♡</a>
+          </div>
+          </div> 
         </footer>
       </div>
     </>
