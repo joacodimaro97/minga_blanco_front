@@ -8,7 +8,7 @@ module.exports = {
   extend: {
     backgroundImage: {
       'hero': "url('./assets/images/1mangashero.png')",
-      'footerimg': "url('./assets/images/Footer.png')",
+      /* 'footerimg': "url('./assets/images/Footer.png')" */,
       'fondo': "('./assets/images/narutofon.png')"
 
     },
