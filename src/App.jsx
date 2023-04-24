@@ -105,7 +105,7 @@ function App() {
           </div>
         </main>
         <footer className="w-screen p-2 min-h-[45vh] flex flex-col justify-around items-center sm:w-full sm:min-h-[50vh] sm:p-0">
-          <img className="rounded-[100%_100%_100%_100%/_0%_0%_100%_100%] lg:w-full" src={footer} alt="" />
+          <img className="rounded-[100%_100%_100%_100%/_0%_0%_100%_100%] lg:w-full" src={footerFondo} alt="" />
           <div className="w-full p-2 min-h-[45vh] flex flex-col justify-around items-center sm:w-full sm:min-h-[20vh] sm:p-0 md:w-[70%] md:border-b-[0.6px] border-[#5d5a5a] md:flex-row md-p-1">        
           <a className="text-white text-[25px]" href="">Home</a>
           <a className="text-white text-[25px]" href="">Mangas</a>
