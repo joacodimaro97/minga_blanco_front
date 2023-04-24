@@ -20,7 +20,7 @@ import carru10 from "./assets/images/carru10.png";
 
 
 function App() {
-  console.log("funciona?")
+
   return (
     <>
       <div className="min-h-screen w-full  bg-[#040404]">
