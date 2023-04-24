@@ -49,7 +49,7 @@ function App() {
         </nav>
         <div className="sm:h-[100%] sm:w-[50%] sm:rounded-full sm:bg-gradient-to-r from-[#121226] to-[#0b094a] blur-[115px] absolute right-0 z-0"></div>
 
-        <main className="min-w-full flex flex-col  min-h-[120vh]  p-4 justify-between items-center sm:min-h-[180vh] sm:z-1 sm:justify-evenly md:min-h-[200vh] md:bg-fondoOscuro md:bg-fondo 2xl:min-h-[220vh]">
+        <main className="min-w-full flex flex-col  min-h-[120vh]  p-4 justify-between items-center sm:min-h-[10vh] sm:z-1 sm:justify-evenly md:min-h-[200vh] md:bg-fondoOscuro md:bg-fondo 2xl:min-h-[220vh]">
           <h1 class="text-white hidden sm:block sm:text-center sm: text-[2rem] sm:font-bold md:text-[4rem] md:text-gray-300 z-10">
             Best manga reader
           </h1>
