@@ -1,22 +1,12 @@
 import apiUrl from '../api'
-import Footer from './components/Footer';
-import Navbar from './components/Navbar';
+import Main from './layouts/Main';
 import Index from './pages/Index';
 function App() {
 
 
 
   return (
-    <>
-        <Navbar />
-        
-        <div className="md:h-[50%] md:w-[50%] md:rounded-full md:bg-gradient-to-r from-[#121226] to-[#0b094a] blur-[115px] absolute right-0 z-0"></div>
-        
-        <Index />
-        
-        <Footer />
-      
-    </>
+     <Main><Index /></Main>
   );
 }
 
