@@ -29,7 +29,7 @@ useEffect(() => {
 
 
   return (
-    <div id="controls-carousel" class="hidden md:relative md:w-[50%] md:flex md:items-center md:justify-center">
+    <div id="controls-carousel" class=" md:relative md:w-[50%] md:flex md:items-center md:justify-center">
         
     <img className="h-[18rem] w-[18rem] md:w-[38vw] md:h-[20rem] lg:w-[35rem] lg:h-[30rem] brightness-90" src={images[counter]?.cover_photo} alt="" />
        
