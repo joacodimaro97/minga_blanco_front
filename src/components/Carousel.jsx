@@ -4,7 +4,9 @@ import apiUrl from '../../api';
 
 export default function Carousel() {
     useEffect(
-        ()=>{ axios(apiUrl+'resources').then(res=>setImages(res.data.resources)).catch(err=>console.log(err))
+        ()=>{ axios(apiUrl+'resources')
+        .then(res=>setImages(res.data.resources))
+        .catch(err=>console.log(err))
         },
         [] //array vacio, ya que necesitamos fetchear una sola vez al montar el componente
     )
@@ -12,7 +14,7 @@ export default function Carousel() {
 
 
 let[images, setImages] = useState([])
-console.log(images)
+
 let [counter, setCounter] = useState(0);
 
 
@@ -29,9 +31,9 @@ useEffect(() => {
 
 
   return (
-    <div id="controls-carousel" class=" md:relative md:w-[50%] md:flex md:items-center md:justify-center">
+    <div id="controls-carousel" class="hidden md:relative md:w-[50%] md:flex md:items-center md:justify-center">
         
-    <img className="h-[18rem] w-[18rem] md:w-[38vw] md:h-[20rem] lg:w-[35rem] lg:h-[30rem] brightness-90" src={images[counter]?.cover_photo} alt="" />
+    <img className="h-[18rem] w-[18rem] md:w-[38vw] md:h-[20rem] lg:w-[35rem] lg:h-[30rem] brightness-90" src={images[counter]?.cover_photo} alt="IMG" />
        
     </div>
   )
