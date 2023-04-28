@@ -4,7 +4,7 @@ import NavBar from './Navbar'
 const AuthorForm = () => {
   return (
     <>
-    <NavBar className="bg-white"/>
+    <div>Hola Mundo!!!</div>
     </>
   )
 }
