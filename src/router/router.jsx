@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import Main from '../App.jsx'
 import Layout from '../layouts/Main.jsx'
 import ChapterForm from '../pages/ChapterForm.jsx'
+import AuthorForm from '../components/AuthorForm.jsx'
 
 
 const routes = createBrowserRouter([
@@ -12,7 +13,8 @@ const routes = createBrowserRouter([
         { path: '/chapter-form', element:<ChapterForm/>},
         
     ]
-    }
+    },
+    { path: '/author-form', element:<AuthorForm/> }
 ])
 
 export default routes
