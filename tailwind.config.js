@@ -18,7 +18,8 @@ module.exports = {
       dark:'#000',
       green:'#0F5C2E',
       blueviolet:'#4338CA'
-    }
+    },
+    screens: {'mobile': '320px'}
   }
   },
   variants: {},
