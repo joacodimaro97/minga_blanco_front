@@ -6,10 +6,15 @@ import Register from '../pages/Register.jsx'
 import Login from '../pages/Login.jsx'
 import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
+import AuthorForm from '../pages/AuthorForm.jsx'
+import NewRole from '../pages/NewRole.jsx'
+
+
 
 let token = localStorage.getItem('token')
 
 const routes = createBrowserRouter([
+
   {
     path: '/',
     element: (
@@ -21,7 +26,8 @@ const routes = createBrowserRouter([
     ),
     children: [
       { path: '/', element:<Main/>, errorElement:<div>ups hubo un error</div>}, //aca es es el home
-      { path: '/chapter-form', element:<ChapterForm/>},
+      { path: '/chapter-form/:id_manga', element:<ChapterForm/>},
+      
       {
         path:'/register', 
         element: (
@@ -44,7 +50,11 @@ const routes = createBrowserRouter([
         ),
       }
     ]
-  }
+  },
+
+       { path: '/author-form', element:<AuthorForm/> },
+       {path: '/new-role', element:< NewRole/>}
+
 ])
 
 export default routes
