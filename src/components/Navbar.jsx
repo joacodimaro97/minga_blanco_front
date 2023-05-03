@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link as Anchor } from 'react-router-dom'
 
 
 export default function NavBar() {
@@ -11,6 +12,9 @@ export default function NavBar() {
     const closeMenu = () => {
         setMenu(false);
     };
+
+    // let role = JSON.parse(localStorage.getItem('user')).role
+    // AGREGAR CONDICIONAL PARA QUE NEW ROLE SOLO SE MUESTRE EN LOS USERS DE ROL "0"
 
     return (
         <nav className="h-[10vh] flex justify-between p-4 bg-black">
@@ -37,6 +41,7 @@ export default function NavBar() {
                             <li className="text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Home</li>
                             <li className="text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Mangas</li>
                             <li className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Chapters</li>
+                            <Anchor to={'/new-role'} className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">New Role</Anchor>
                         </ul>
                     </div>
                 </div>
