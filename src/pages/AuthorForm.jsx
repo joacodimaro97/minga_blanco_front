@@ -15,10 +15,11 @@ const AuthorForm = () => {
       last_name: last_name.current.value,
       city: city.current.value,
       date: date.current.value,
-      photo: photo.current.value
+      photo: photo.current.value,
+      active: 'true'
     }
     axios.post('http://localhost:8000/api/authors/author-form', data)
-      .then(res=>console.log(res.statusText))
+      .then(res=>console.log(res))
       .catch(err =>console.log(err))
   }
   return (
