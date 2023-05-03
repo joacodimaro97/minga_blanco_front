@@ -4,12 +4,13 @@ import Layout from '../layouts/Main.jsx'
 import ChapterForm from '../pages/ChapterForm.jsx'
 
 
+
 const routes = createBrowserRouter([
     { path: '/', 
     element:<Layout/>, 
     children:[
-        { path: '/', element:<Main/>, errorElement:<div>ups hubo un error</div>}, //aca es es el home
-        { path: '/chapter-form', element:<ChapterForm/>},
+        { path: '/', element:<Main/>, errorElement:<div>ups hubo un error</div>}, //aca es el home
+        { path: '/chapter-form/:id_manga', element:<ChapterForm/>},
         
     ]
     }

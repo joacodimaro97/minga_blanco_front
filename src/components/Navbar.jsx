@@ -18,7 +18,7 @@ export default function NavBar() {
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-white hover:bg-white hover:text-black hover:rounded-md transition duration-1000 ease-in-out">
                     <path strokeLinecap="round" strokeLinejoin="round" d={menu ? "M6 18L18 6M6 6l12 12" : "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"}/></svg>
             </button>
-            <img className="h-[5vh]" src='./images/logo.png' alt="logo" />
+            <img className="h-[5vh]" src='/public/images/logo.png' alt="logo" />
             {menu && (
                 <div className="fixed flex flex-col items-center p-2 z-20  top-0 right-0 bottom-0 left-0 bg-gradient-to-r from-[#5b5353] to-[#111113] w-[100%] h-[100%] rounded-br-[5%] md:w-[45%] md:h-[60%] md:rounded-br-[2%] ">
                     <div className="flex items-center justify-around w-[90%]">
