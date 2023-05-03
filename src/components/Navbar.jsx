@@ -3,6 +3,8 @@ import React, { useState } from "react";
 
 export default function NavBar() {
     const [menu, setMenu] = useState(false);
+    
+
 
     const menuClick = () => {
         setMenu(!menu);
@@ -11,6 +13,9 @@ export default function NavBar() {
     const closeMenu = () => {
         setMenu(false);
     };
+    let token = localStorage.getItem('token')
+    let user = JSON.parse(localStorage.getItem('user'))
+    
 
     return (
         <nav className="h-[10vh] flex justify-between p-4 bg-black">
@@ -22,10 +27,10 @@ export default function NavBar() {
             {menu && (
                 <div className="fixed flex flex-col items-center p-2 z-20  top-0 right-0 bottom-0 left-0 bg-gradient-to-r from-[#5b5353] to-[#111113] w-[100%] h-[100%] rounded-br-[5%] md:w-[45%] md:h-[60%] md:rounded-br-[2%] ">
                     <div className="flex items-center justify-around w-[90%]">
-                        <img src="./images/user.png" className="p-1  w-10 rounded-[50%]" alt="" />
+                        {token && <img src={user.photo} className="p-1  w-10 rounded-[50%]" alt="" />}
                         <ul>
-                            <li className="text-white">Joaquin Dimaro</li>
-                            <li className="text-white">joaquin@hotmail.com</li>
+                            {token && <li className="text-white">{user.name}</li>}
+                            {token && <li className="text-white">{user.email}</li>}
                         </ul>
                         <button className="text-white bg-transparent  px-4 py-2 hover:bg-white hover:rounded-md hover:text-black transition duration-1000 ease-in-out cursor-pointer" onClick={closeMenu}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button>
@@ -35,10 +40,10 @@ export default function NavBar() {
                     <div className="flex items-start justify-center h-full w-full p-4">
                         <ul className="flex flex-col justify-start font-bold items-center w-full  h-[60%] md:items-center space-y-1">
                             <a href="#" className="text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Home</a>
-                            <a href="/signup" className="text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Register</a>
-                            <a href="/singin" className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Log in</a>
-                            <a className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Logout</a>
-                            <a className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Favourites</a>
+                            {!token && <a href="/register" className="text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Register</a>}
+                            {!token && <a href="/login" className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Log in</a>}
+                            {token && <a className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Logout</a>}
+                            {token && <a className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Favourites</a>}
                         </ul>
                     </div>
                 </div>

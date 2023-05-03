@@ -15,14 +15,25 @@ export default function Register(e) {
   function handleForm(e){
     e.preventDefault()
   let dataForm = {
+    name: name.current.value,
     email: email.current.value,
     photo: photo.current.value,
     password: password.current.value
     
   }
 
-  axios.post(apiUrl + 'auths/signup', dataForm).then(res => console.log(res))
-  console.log(dataForm)
+  axios.post(apiUrl + 'auths/signup', dataForm)
+  .then(res => {console.log(res)
+  alert('Registro exitoso')})
+  .catch(err => {
+    console.log(err.response.data.message)
+    if (err.response.data.error === 'auth already exist!'){
+      let error = err.response.data
+      alert(error)
+    } else if(err.response.data.error === 'PWD_TOO_SHORT'){
+      alert('the password is too short')
+    } 
+  })
   }
 
   return (
@@ -54,10 +65,10 @@ export default function Register(e) {
       <label htmlFor="info" className='text-[#898989] '>Send notification to my email</label>
       </div>
       
-      <button type='submit' className='border border-black w-[250px] h-[48px] rounded-md bg-gradient-to-r from-[#434343] to-[#000] text-white font-bold'>Sing up</button>
-      <button type='submit' className='border border-black flex justify-center text-[#898989] font-bold items-center w-[250px] h-[48px] rounded-md'><img src="./images/Google.png" className='w-[24px]' alt="" />Sing up with Google</button>
+      <button type='submit' className='border border-black w-[250px] h-[48px] rounded-md bg-gradient-to-r from-[#434343] to-[#000] text-white font-bold md:w-[100%]  xl:w-[100%]'>Sing up</button>
+      <button type='submit' className='border border-black flex justify-center text-[#898989] font-bold items-center w-[250px] h-[48px] rounded-md md:w-[100%] xl:w-[100%]'><img src="./images/Google.png" className='w-[24px]' alt="" />Sing up with Google</button>
      </form>
-      <p className='text-[12px] text-[#898989]'>already have an account?<span className='text-[red] font-bold '> Log in</span></p> 
+      <p className='text-[12px] text-[#898989]'>already have an account?<a href="/login" className='font-bold text-[#FF0000]'> Log in</a> </p> 
     </div>
    </main>
   )
