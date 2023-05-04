@@ -20,11 +20,7 @@ module.exports = {
       blueviolet:'#4338CA'
     },
 
-    fontFamily: {
-      'montserrat': ['Montserrat'],
-      
-  }
-
+    fontFamily: {'montserrat': ['Montserrat'],},
     screens: {'mobile': '320px'}
   }
   },
