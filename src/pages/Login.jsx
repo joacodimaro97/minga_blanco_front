@@ -38,6 +38,13 @@ function handleSubmit(e){
         })
       });
   };
+  
+  // let role = localStorage.getItem('role')
+  //   console.log(role);
+  //   let token = localStorage.getItem('token')
+  //   console.log(token);
+  //   let headers = {headers:{'Authorization':`Bearer ${token}`}}
+
   return (
     <main className='flex justify-center align-center items-center h-screen w-screen'>
       <div className='w-[100%]  h-[90%]  lg:p-8 lg:mt-10 flex flex-col  lg:w-[40%] lg:h-[90%] lg:justify-evenly items-center'>
