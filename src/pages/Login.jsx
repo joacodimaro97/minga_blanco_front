@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { useRef } from 'react';
 import apiUrl from '../../api';
-import { data } from 'autoprefixer';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,22 +13,15 @@ export default function Login() {
   let user = JSON.parse(localStorage.getItem('user'))
 function handleSubmit(e){
     e.preventDefault();
-   
-
     let dataSignin = {
       email: email.current.value,
       password: password.current.value,
-    
-
     }
 
     axios.post(apiUrl + 'auths/signin', dataSignin)
       .then((res) => {
-        console.log(res.data);
-        console.log(res.data.token)
-        console.log(res.data.user)
-        localStorage.setItem('token', res.data.token)
-        localStorage.setItem('user', JSON.stringify(res.data.user))
+        localStorage.setItem('token',res.data.token)
+        localStorage.setItem('user',JSON.stringify(res.data.user))
         navigate('/')
         Swal.fire(
           `Welcome ${res.data.user.email}`,
