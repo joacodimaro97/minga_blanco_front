@@ -22,7 +22,9 @@ module.exports = {
     fontFamily: {
       'montserrat': ['Montserrat'],
       
-  }
+  },
+
+    screens: {'mobile': '320px'}
   }
   },
   variants: {},
