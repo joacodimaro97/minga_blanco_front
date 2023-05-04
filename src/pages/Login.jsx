@@ -23,7 +23,7 @@ function handleSubmit(e){
       email: email.current.value,
       password: password.current.value,
     }
-
+console.log(dataSignin)
     axios.post(apiUrl + 'auth/signin', dataSignin, headers)
       .then((res) => {
         console.log(res.data);
