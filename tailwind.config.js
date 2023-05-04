@@ -19,7 +19,6 @@ module.exports = {
       green:'#0F5C2E',
       blueviolet:'#4338CA'
     },
-
     fontFamily: {
       'montserrat': ['Montserrat'],
       

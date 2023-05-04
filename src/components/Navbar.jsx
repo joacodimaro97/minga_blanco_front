@@ -21,8 +21,6 @@ export default function NavBar() {
             .catch(err => alert(err))
     }
     
-
-
     const menuClick = () => {
         setMenu(!menu);
     };
@@ -33,12 +31,10 @@ export default function NavBar() {
 
     let user = JSON.parse(localStorage.getItem('user'))
 
-  /*   const handleLogout = () => { // manejar logout
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        navigate('/'); // redirigir a inicio
-    }; */
-        
+
+   
+   
+
 
     return (
         <nav className="h-[10vh] flex justify-between p-4 bg-black">
