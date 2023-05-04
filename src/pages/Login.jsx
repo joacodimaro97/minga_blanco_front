@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { useRef } from 'react';
 import apiUrl from '../../api';
-import { data } from 'autoprefixer';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { redirect } from 'react-router-dom';
@@ -17,8 +16,6 @@ export default function Login({setShow, show}) {
   let user = JSON.parse(localStorage.getItem('user'))
 function handleSubmit(e){
     e.preventDefault();
-   
-
     let dataSignin = {
       email: email.current.value,
       password: password.current.value,
@@ -26,12 +23,16 @@ function handleSubmit(e){
 console.log(dataSignin)
     axios.post(apiUrl + 'auth/signin', dataSignin, headers)
       .then((res) => {
+
         console.log(res.data);
         console.log(res.data.token)
         console.log(res.data.user)
         localStorage.setItem('token', res.data.token)
         localStorage.setItem('user', JSON.stringify(res.data.user))
         navigate('/', { replace: true })
+
+        
+
         Swal.fire(
           `Welcome ${res.data.user.email}`,
           'You are logged in!',
@@ -50,8 +51,15 @@ console.log(dataSignin)
   };
 
 
-    let token = localStorage.getItem('token')
-    let headers = {headers:{'Authorization':`Bearer ${token}`}}
+
+
+  
+  // let role = localStorage.getItem('role')
+  //   console.log(role);
+  //   let token = localStorage.getItem('token')
+  //   console.log(token);
+  //   let headers = {headers:{'Authorization':`Bearer ${token}`}}
+
 
   return (
     <main className='flex justify-center align-center items-center h-screen w-screen'>
