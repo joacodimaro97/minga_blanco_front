@@ -11,8 +11,6 @@ import { useNavigate } from 'react-router-dom'
 export default function Register(props) {
 
 
-  
-
   let name = useRef()
   let email = useRef()
   let photo = useRef()
@@ -29,7 +27,7 @@ export default function Register(props) {
     
   }
 
-  axios.post(apiUrl + 'auths/signup', dataForm)
+  axios.post(apiUrl + 'auth/signup', dataForm)
   .then(res => {console.log(res)
     Swal.fire(
       'Welcome !',

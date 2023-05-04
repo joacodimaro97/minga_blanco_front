@@ -1,10 +1,25 @@
 import React, { useState } from "react";
 import { Link as Anchor, useNavigate } from 'react-router-dom'
-
+import axios from "axios"
+import apiUrl from "../../api"
 
 export default function NavBar() {
     const [menu, setMenu] = useState(false);
+
+
     const navigate = useNavigate()
+    let token = localStorage.getItem('token')
+    let headers = {headers:{'Authorization':`Bearer ${token}`}}
+
+    function handleLogout() {
+        axios.post(apiUrl+'auth/signout',null,headers)
+            .then(res=> {
+                localStorage.removeItem('token')
+                localStorage.removeItem('user')
+                navigate('/')
+            })
+            .catch(err => alert(err))
+    }
     
 
 
@@ -15,21 +30,16 @@ export default function NavBar() {
     const closeMenu = () => {
         setMenu(false);
     };
-    let token = localStorage.getItem('token')
+
     let user = JSON.parse(localStorage.getItem('user'))
 
-    const handleLogout = () => { // manejar logout
+  /*   const handleLogout = () => { // manejar logout
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         navigate('/'); // redirigir a inicio
-    };
-    
+    }; */
+        
 
-    // let role = JSON.parse(localStorage.getItem('user')).role
-    // AGREGAR CONDICIONAL PARA QUE NEW ROLE SOLO SE MUESTRE EN LOS USERS DE ROL "0"
-    
-   
-    let headers = {headers:{'Authorization':`Bearer ${token}`}}
     return (
         <nav className="h-[10vh] flex justify-between p-4 bg-black">
             <button className="contents" onClick={menuClick}>

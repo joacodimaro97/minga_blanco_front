@@ -22,11 +22,9 @@ function handleSubmit(e){
     let dataSignin = {
       email: email.current.value,
       password: password.current.value,
-    
-
     }
 
-    axios.post(apiUrl + 'auths/signin', dataSignin, headers)
+    axios.post(apiUrl + 'auth/signin', dataSignin, headers)
       .then((res) => {
         console.log(res.data);
         console.log(res.data.token)
@@ -46,7 +44,7 @@ function handleSubmit(e){
         Swal.fire({
           icon: 'error',
           title: 'Error logging in',
-          text: `${res.data.error}`,
+          text: `${err.response.data.message}`,
         })
       });
   };
