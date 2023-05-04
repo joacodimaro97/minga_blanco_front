@@ -5,9 +5,12 @@ import apiUrl from '../../api';
 import { data } from 'autoprefixer';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 
 
-export default function Login() {
+export default function Login({setShow, show}) {
+  console.log(show)
+  console.log(setShow)
   let email = useRef()
   let password = useRef()
   const navigate = useNavigate()
@@ -23,29 +26,35 @@ function handleSubmit(e){
 
     }
 
-    axios.post(apiUrl + 'auths/signin', dataSignin)
+    axios.post(apiUrl + 'auths/signin', dataSignin, headers)
       .then((res) => {
         console.log(res.data);
         console.log(res.data.token)
         console.log(res.data.user)
         localStorage.setItem('token', res.data.token)
         localStorage.setItem('user', JSON.stringify(res.data.user))
-        navigate('/')
+        navigate('/', { replace: true })
         Swal.fire(
           `Welcome ${res.data.user.email}`,
           'You are logged in!',
           'success'
         )
+       
       })
       .catch((err) => {
         console.error(err);
         Swal.fire({
           icon: 'error',
           title: 'Error logging in',
-          text: 'Check the fields !',
+          text: `${res.data.error}`,
         })
       });
   };
+
+
+    let token = localStorage.getItem('token')
+    let headers = {headers:{'Authorization':`Bearer ${token}`}}
+
   return (
     <main className='flex justify-center align-center items-center h-screen w-screen'>
       <div className='w-[100%]  h-[90%]  lg:p-8 lg:mt-10 flex flex-col  lg:w-[40%] lg:h-[90%] lg:justify-evenly items-center'>
@@ -64,7 +73,7 @@ function handleSubmit(e){
       <button type='submit' className='border border-black w-[100%]  lg:w-[344px] h-[48px] rounded-md bg-gradient-to-r from-[#434343] to-[#000] text-white font-bold'>Sing in</button>
       <button className='border border-black flex justify-center text-[#898989] font-bold items-center lg:w-[344px] h-[48px] rounded-md'><img src="./images/Google.png" className='w-[24px]' alt="" />Sing in with Google</button>
      </form>
-      <p className='text-[12px] text-[#898989]'>you don't have an account yet?<a href="/register" className='text-[#FF0000] font-bold'> Sign up</a></p> 
+      <p className='text-[12px] text-[#898989]'>you don't have an account yet?<span onClick={()=> setShow((show)=>!show) }  className='text-[#FF0000] font-bold hover:cursor-pointer'> Sign up</span></p> 
     </div>
     <img src="./images/login.png" alt="" className='hidden md:block   md:w-[50%] lg:w-[60%] lg:h-[70%]  xl:w-[70%] xl:h-[100%]' />
     </main>

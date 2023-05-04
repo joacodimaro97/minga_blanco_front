@@ -2,15 +2,22 @@ import React from 'react'
 import { useRef } from 'react'
 import axios from 'axios'
 import apiUrl from '../../api'
+import { useState } from 'react'
+import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
 
 
-export default function Register(e) {
+
+export default function Register(props) {
+
+
   
 
   let name = useRef()
   let email = useRef()
   let photo = useRef()
   let password = useRef()
+  const navigate = useNavigate()
 
   function handleForm(e){
     e.preventDefault()
@@ -24,16 +31,27 @@ export default function Register(e) {
 
   axios.post(apiUrl + 'auths/signup', dataForm)
   .then(res => {console.log(res)
-  alert('Registro exitoso')})
-  .catch(err => {
-    console.log(err.response.data.message)
-    if (err.response.data.error === 'auth already exist!'){
-      let error = err.response.data
-      alert(error)
-    } else if(err.response.data.error === 'PWD_TOO_SHORT'){
-      alert('the password is too short')
-    } 
-  })
+    Swal.fire(
+      'Welcome !',
+      'You are Registred!',
+      'success'
+      )
+      navigate('/')}
+  )
+
+  .catch((err) => {
+    console.log(err)
+    if (err.response.data.message == 'auth already exist') {
+      Swal.fire({
+        icon: 'error',
+        title: 'The email already exists!',
+      });}
+    Swal.fire({
+      icon: 'error',
+      title: 'Error Register',
+      text: `${err.response.data.message}`,
+    })
+  });
   }
 
   return (
@@ -67,8 +85,8 @@ export default function Register(e) {
       
       <button type='submit' className='border border-black w-[250px] h-[48px] rounded-md bg-gradient-to-r from-[#434343] to-[#000] text-white font-bold md:w-[100%]  xl:w-[100%]'>Sing up</button>
       <button type='submit' className='border border-black flex justify-center text-[#898989] font-bold items-center w-[250px] h-[48px] rounded-md md:w-[100%] xl:w-[100%]'><img src="./images/Google.png" className='w-[24px]' alt="" />Sing up with Google</button>
+      <p className='text-[12px] text-[#898989]'>already have an account?<span  className='font-bold text-[#FF0000] hover:cursor-pointer' onClick={()=> props.setShow(!props.show) } > Log in</span> </p> 
      </form>
-      <p className='text-[12px] text-[#898989]'>already have an account?<a href="/login" className='font-bold text-[#FF0000]'> Log in</a> </p> 
     </div>
    </main>
   )
