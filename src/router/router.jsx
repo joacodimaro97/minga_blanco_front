@@ -8,6 +8,7 @@ import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
 import AuthorForm from '../pages/AuthorForm.jsx'
 import NewRole from '../pages/NewRole.jsx'
+import MangaForm from '../pages/MangaForm.jsx'
 
 
 
@@ -27,6 +28,7 @@ const routes = createBrowserRouter([
     children: [
       { path: '/', element:<Main/>, errorElement:<div>ups hubo un error</div>}, //aca es es el home
       { path: '/chapter-form/:id_manga', element:<ChapterForm/>},
+      { path: '/manga-form', element: <MangaForm/>},
       
       {
         path:'/register', 
