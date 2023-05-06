@@ -8,47 +8,23 @@ import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
 import AuthorForm from '../pages/AuthorForm.jsx'
 import NewRole from '../pages/NewRole.jsx'
-
-
+import Authform from '../pages/Authform.jsx'
 
 let token = localStorage.getItem('token')
 
 const routes = createBrowserRouter([
-
-  {
-    path: '/',
-    element: (
+  {path: '/', element: (
       <Layout>
-        {token && <Navbar />}
-        <Main />
-        {token && <Footer />}
+      <Navbar />
+      <Footer />
       </Layout>
     ),
     children: [
-      { path: '/', element:<Main/>, errorElement:<div>ups hubo un error</div>}, //aca es es el home
-      { path: '/chapter-form/:id_manga', element:<ChapterForm/>},
-      
-      {
-        path:'/register', 
-        element: (
-          <>
-            {token && <Navbar />}
-            <Register />
-            {token && <Footer />}
-          </>
-        ), 
-        errorElement:<div>Sorry, an error has occurred</div>
-      },
-      {
-        path: '/login',
-        element: (
-          <>
-            {token && <Navbar />}
-            <Login />
-            {token && <Footer />}
-          </>
-        ),
-      }
+      {path: '/', element:<Main/>, errorElement:<div>ups hubo un error</div>}, //aca es es el home
+      {path: '/chapter-form/:id_manga', element:<ChapterForm/>},
+      {path: '/auth', element:(token? <div>Not Found!</div> : <Authform />)},
+      {path: '/register', element: (token? <div>Not Found!</div>: <Register/>)},
+      {path: '/login', element: (token? <div>Not Found!</div> : <Login />)},
     ]
   },
 
