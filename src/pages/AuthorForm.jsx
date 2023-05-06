@@ -26,7 +26,7 @@ const AuthorForm = () => {
       date: date.current.value,
       photo: photo.current.value,
       active: 'true',
-      id: user.id
+      user_id: user.id
     }
     axios.post(url,data,headers)
       .then(res=>{

@@ -24,7 +24,7 @@ export default function ChapterForm() {
     console.log(data)
     axios.post(apiUrl+"chapters", data)
     .then(res => console.log(res))
-    .catch(err => console.error(err.res.data.message))
+    .catch(err => console.log(err))
     console.log(data)
 
   }
