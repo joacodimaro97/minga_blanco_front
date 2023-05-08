@@ -16,6 +16,8 @@ export default function Login({setShow, show}) {
   let user = JSON.parse(localStorage.getItem('user'))
 function handleSubmit(e){
     e.preventDefault();
+    let token = localStorage.getItem('token')
+    let headers = {headers:{'Authorization':`Bearer ${token}`}}
     let dataSignin = {
       email: email.current.value,
       password: password.current.value,

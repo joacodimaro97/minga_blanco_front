@@ -15,7 +15,7 @@ const AuthorForm = () => {
   const navigate = useNavigate()
 
   function createAuthor (){
-    let url = apiUrl+'/authors/author-form'
+    let url = apiUrl+'authors/author-form'
     let token = localStorage.getItem('token')
     let user = JSON.parse(localStorage.getItem('user'))
     let headers = {headers:{'Authorization':`Bearer ${token}`}}
@@ -32,15 +32,16 @@ const AuthorForm = () => {
       .then(res=>{
         console.log(res)
         Swal.fire(
-          `${res.data.name} ur role has changed`,
+          `"${res.data.name.charAt(0).toUpperCase()}${res.data.name.slice(1)}" Your role has changed`,
           )
           navigate('/')
       })
       .catch(err => {
+        console.log(err)
         Swal.fire(
           { icon:'error',
-            title:"Can't to create new author",
-            text:'Chech the fields!!'
+            title:"Failed to create the author ",
+            text:err.response.data.error || err.response.data.message
           }
           )
       })
@@ -49,7 +50,7 @@ const AuthorForm = () => {
     <>
     <NavBar className=""/>
     <div className='grid place-items-center w-[100vw] h-[90vh] bg-black text-white | xl:h-[90vh] | 2xl:h-[90vh] 2xl:py-16'>
-     <form className='flex flex-col items-center justify-center h-[100%] w-[100%] gap-8 | md:w-[75%] | lg:w-[60%] | xl:gap-10 | 2xl:justify-between '>
+      <form className='flex flex-col items-center justify-center h-[100%] w-[100%] gap-8 | md:w-[75%] | lg:w-[60%] | xl:gap-10 | 2xl:justify-between '>
         <h1 className='text-3xl | xl:text-5xl'>New Author</h1>
         <FaUserCircle className='text-6xl | xl:text-8xl'/>
         <input type="text" ref={name} placeholder='Name' className='w-[65%] bg-transparent outline-none pl-3 border-b-[3px] border-b-white/50 | xl:text-3xl'/>
