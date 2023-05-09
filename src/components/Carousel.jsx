@@ -9,7 +9,7 @@ export default function Carousel() {
         .then(res=>setImages(res.data.resources))
         .catch(err=>console.log(err))
         },
-        [] //array vacio, ya que necesitamos fetchear una sola vez al montar el componente
+        [] //array vacio, ya que necesitamos montar una sola vez lo que traemos de la api
     )
 
 

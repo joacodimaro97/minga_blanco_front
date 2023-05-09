@@ -9,6 +9,8 @@ import Footer from '../components/Footer.jsx'
 import AuthorForm from '../pages/AuthorForm.jsx'
 import NewRole from '../pages/NewRole.jsx'
 import Authform from '../pages/Authform.jsx'
+import Mangasform from '../pages/Mangas.jsx'
+import Author from '../pages/Author.jsx'
 
 let token = localStorage.getItem('token')
 
@@ -25,6 +27,8 @@ const routes = createBrowserRouter([
       {path: '/auth', element:(token? <div>Not Found!</div> : <Authform />)},
       {path: '/register', element: (token? <div>Not Found!</div>: <Register/>)},
       {path: '/login', element: (token? <div>Not Found!</div> : <Login />)},
+      {path: '/mangas-form', element: (token?  <Mangasform/> : <div>Not Found!</div>)},
+      {path: '/author/:id', element: (token? <Author /> : <div>Not Found!</div>)}
     ]
   },
 

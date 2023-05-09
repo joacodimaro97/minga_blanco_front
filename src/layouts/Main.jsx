@@ -5,7 +5,7 @@ import { Outlet, useLocation } from "react-router-dom"
 
 export default function Main() {
   const location = useLocation();
-  if(location.pathname !== '/' && location.pathname !== "/chapter-form/" ){
+  if(location.pathname !== '/' && location.pathname !== "/chapter-form/:id_manga" ){
     return <Outlet />
   }
   return (

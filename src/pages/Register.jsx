@@ -2,9 +2,9 @@ import React from 'react'
 import { useRef } from 'react'
 import axios from 'axios'
 import apiUrl from '../../api'
-import { useState } from 'react'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
+import 'animate.css';
 
 
 
@@ -53,7 +53,7 @@ export default function Register(props) {
   }
 
   return (
-   <main className='flex  h-screen w-screen md: items-center'>
+   <main className='flex  h-screen w-screen md: items-center animate__animated animate__fadeIn'>
     <img src="./images/registerimg.png" alt="" className='hidden md:block h-[70%] md:w-[70%] lg:h-[100%] '/>
      <div className=': w-[100%] justify-evenly  items-center mdp-8 md:mt-10 flex flex-col  md:w-[30%] md:h-[85%] md:justify-evenly md:items-center'>
       <img src="./images/logo.png" className='w-[140px]' alt="" />

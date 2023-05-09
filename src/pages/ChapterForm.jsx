@@ -4,6 +4,9 @@ import apiUrl from "../../api";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import Main from '../App.jsx'
+import NavBar from "../components/Navbar";
+import 'animate.css' ;
+
 
 export default function ChapterForm() {
   let chapterId = useParams()
@@ -11,7 +14,7 @@ export default function ChapterForm() {
   let title = useRef()
   let order = useRef()
   let pages = useRef()
-
+  
   function handleForm(e){
     e.preventDefault()
     let inputpages = pages.current.value
@@ -23,16 +26,20 @@ export default function ChapterForm() {
       pages: listPages
     }
     console.log(data)
+    
+    
+    let headers = {headers:{'Authorization':`Bearer ${token}`}}
+    
     axios.post(apiUrl+"chapters", data,headers)
     .then(res => {console.log(res)
-    Swal.fire({
+      Swal.fire({
       icon: 'success',
       title: 'Success',
       text: 'Author created succesfully',
       confirmButtonText:'OK',
     })
   })
-    .catch(error => {
+  .catch(error => {
     console.error(error)
     if (error.response && error.response.data){
       Swal.fire({
@@ -53,19 +60,19 @@ export default function ChapterForm() {
   })
 }
 
-    // let role = localStorage.getItem('role')
-    let role = JSON.parse(localStorage.getItem('user'))?.role;
-    console.log(role);
-    let token = localStorage.getItem('token')
+let token = localStorage.getItem('token')
+let role = JSON.parse(localStorage.getItem('user'))?.role;
+// let role = localStorage.getItem('role')
+console.log(role);
     console.log(token);
-    let headers = {headers:{'Authorization':`Bearer ${token}`}}
-
-
-  return (
+    
+    
+    return (
     <>
     { role == 1 || role == 2 ?(
     <>
-    <section className="grid h-screen place-content-center text-slate bg-black">
+    
+    <section className="grid h-screen place-content-center text-slate bg-black animate__animated animate__fadeIn">
      <div className="mb-6 text-center text-black font-thin">
      <h1 className="text-5xl text-white ">New Chapter</h1>
    
@@ -84,7 +91,9 @@ export default function ChapterForm() {
 
     </>
     ):(
-      <Main /> 
+
+        <Main />
+
     )}
 
     </>

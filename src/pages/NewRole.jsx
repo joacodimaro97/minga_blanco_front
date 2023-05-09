@@ -4,14 +4,14 @@ import logo from '/images/logo.png'
 import rgtImg from '/images/newRoleImg.png'
 import group1 from '/images/newRole1.png'
 import group2 from '/images/newRole2.png'
-
+import 'animate.css';
 export default function NewRole() {
     let user = JSON.parse(localStorage.getItem('user'))
   return (
     <>
     <NavBar/>
     <div className="">
-        <div className=" w-[100vw] h-[90vh] flex flex-col items-center justify-center gap-7">
+        <div className=" w-[100vw] h-[90vh] flex flex-col items-center justify-center gap-7 animate__animated animate__zoomIn">
             <h1 className="text-center text-lg">Change role to</h1>
             <img src={logo} alt="logoImg" className="w-32"/>
 
@@ -44,7 +44,7 @@ export default function NewRole() {
         </div>
 
         <div className=" relative col-span-1">
-            <img className="mobile:hidden absolute top-0 right-0" src={rgtImg} />
+            <img className="mobile:hidden absolute top-0 right-0" src='/public/images/newrolefondo.png' />
         </div>
 
     </div>
