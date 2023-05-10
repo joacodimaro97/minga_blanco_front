@@ -57,7 +57,7 @@ export default function Manga() {
   return (
     <>
     <NavBar />
-    <div className="bg-black text-white w-[100%] h-[100%] flex flex-col pt-14">
+    <div className="bg-black text-white w-[100%] h-[100%] flex flex-col pt-14 | lg:h-[1000px]">
       <div className="lg:grid lg:grid-cols-4">
 
         <div className="text-center lg:col-span-1 lg:text-start lg:px-12 lg:mt-[11rem]">
@@ -78,18 +78,21 @@ export default function Manga() {
             <input className="text-white text-center w-[50%] rounded bg-white/10 border-2 border-white/20 h-7 focus:outline-none md:w-[35%] lg:h-9 lg:w-[48%]" defaultValue={title} type="text" name="title" id="title" ref={titleRef} onKeyUp={capture_info} placeholder="Searh mangas"/>
           </div>
 
-          <div className="flex flex-col text-center items-center gap-12 my-20 lg:grid lg:grid-cols-3 lg:gap-6 lg:w-[90%] lg:mt-0">
+          <div className="flex flex-col text-center items-center gap-20 my-16 lg:grid lg:grid-cols-3 lg:gap-6 lg:w-[90%] lg:mt-0">
+            {mangas?.length === 0 && <h1 className="w-[90%] text-white/60 text-center col-span-3 text-xl | lg:my-10 lg:text-start lg:text-3xl">¡The search did not match any results!</h1>}
             {mangas?.map(i =>
             <div key={i._id} className="w-[100%] lg:w-[100%]">
               <img src={i.cover_photo} alt="mangaImg" className="w-[70%] h-[17rem] mx-auto mb-4 | md:w-[40%] | lg:w-[100%] lg:col-span-1 lg:mb-2"/>
               <h2 className="font-bold text-white/60 | lg:text-start">{i.title}</h2>
             </div>)}
-            <div className="bg-white w-[40%] h-10 rounded-lg md:w-[30%]">
-              <button className="text-black border-r-2 border-r-black w-[50%] h-[100%]" onClick={()=>{setPageNum(pageNum-1); pageNum <= 1 ? setPageNum(1) : null }}>
-              <AiOutlineArrowLeft className="mx-auto"/>
+            <div className="bg-white w-[40%] h-10 rounded-lg md:w-[30%] col-span-3 | lg:mt-5 ">
+              <button className="text-black border-r-2 border-r-black w-[50%] h-[100%] text-center" onClick={()=>{setPageNum(pageNum-1); pageNum <= 1 ? setPageNum(1) : null }}>
+              <AiOutlineArrowLeft className="mx-auto lg:hidden"/>
+              <span className="hidden lg:block">Prev</span>
               </button>
-              {mangas?.length === 6 && <button className="text-black w-[50%] h-[100%]" onClick={()=>{setPageNum(pageNum+1)}}>
-              <AiOutlineArrowRight className="mx-auto" />
+              { <button className="text-black w-[50%] h-[100%] text-center" onClick={()=>{setPageNum(pageNum+1)}}>
+              <AiOutlineArrowRight className="mx-auto lg:hidden" />
+              <span className="hidden lg:block">Next</span>
               </button>}
             </div>
           </div>
