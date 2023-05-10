@@ -1,29 +1,36 @@
 import { useEffect, useRef, useState} from "react"
+import { AiOutlineArrowLeft } from 'react-icons/ai'
+import { AiOutlineArrowRight } from 'react-icons/ai'
+import { useSelector, useDispatch } from "react-redux"
+import inputs_filter_actions from '../store/actions/inputs_filter.js'
 import axios from "axios"
 import apiUrl from "../../api"
 import NavBar from "../components/Navbar"
 import Footer from "../components/Footer"
-import Button from '../components/Button'
-
+const { inputs_filter } = inputs_filter_actions
 
 export default function Manga() {
-  let title = useRef()
+  const { title, categories } = useSelector(store => store.inputs )
+  const dispatch = useDispatch()
+  console.log(title) 
+  console.log(categories) 
+  let titleRef = useRef(title)
   let category_id = useRef('')
   const [reload, setReload] = useState(false)
-  const [categories, setCategories] = useState()
+  const [dmcsCategories, setCategories] = useState()
   const [mangas, setMangas] = useState()
+  const [pageNum, setPageNum] = useState(1)
   useEffect(()=>{
   
-      let category = Object.values(category_id.current)
-      console.log(category)
       let values = []
+      let category = Object.values(category_id.current)
       category.forEach(i => {
         if(i.checked){
           values.push(i.value)
         }
       })
       async function getQueries(){
-        axios(apiUrl+`mangas?title=${title.current?.value}&category_id=${values.join(',')}`)
+        axios(apiUrl+`mangas?title=${titleRef.current?.value}&category_id=${values.join(',')}&page=${pageNum}`)
         .then(res=>setMangas(res.data.response))
         .catch(error=>console.log(error))
       }
@@ -34,38 +41,60 @@ export default function Manga() {
       }
       getCategories()
       getQueries()
-    }, [reload])
+    }, [reload, pageNum])
     
-    console.log(categories)
+    function capture_info(){
+      dispatch(inputs_filter({
+        title: titleRef.current?.value,
+        categories: Object.values(category_id.current)?.filter(i => i.checked)?.map(i => i.value)
+      }))
+      setReload(!reload)
+    }
+    
+    console.log(dmcsCategories)
     console.log(mangas)
+    console.log(pageNum)
   return (
     <>
     <NavBar />
     <div className="bg-black text-white w-[100%] h-[100%] flex flex-col pt-14">
-      <div className="">
-        <div className="text-center">
-          <h1 className="mb-3 text-xl">Categories</h1>
-          <form ref={category_id} className="text-white flex flex-col">
-            {categories?.map(i => 
-            <label htmlFor={i.name} key={i._id}>
-              <input type="checkbox" id={i.name} value={i._id} onClick={()=>setReload(!reload)}/>
+      <div className="lg:grid lg:grid-cols-4">
+
+        <div className="text-center lg:col-span-1 lg:text-start lg:px-12 lg:mt-[11rem]">
+          <h1 className="mb-3 text-2xl lg:mb-7">Categories</h1>
+          <form ref={category_id} className="text-white flex flex-col gap-2">
+            {dmcsCategories?.map(i => 
+            <label htmlFor={i.name} key={i._id} className="text-white/60 lg:text-lg checked:text-red-700">
+              <input defaultChecked={categories.includes(i._id)} type="checkbox" id={i.name} value={i._id} onClick={capture_info}/>
               {i.name}
             </label>
             )}
           </form>
         </div>
-        <div className="flex flex-col items-center my-10 gap-4">
-          <h1 className="text-center">Search your next mangas <span>🤤</span></h1>
-          <input className="text-black text-center w-[50%] rounded bg-white/20 h-7 focus:outline-none" type="text" name="title" id="title" ref={title} onKeyUp={()=>setReload(!reload)} placeholder="Searh mangas"/>
-        </div>
-        <div className="flex flex-col text-center items-center gap-12 my-20">
-          {mangas?.map(i =>
-            <div key={i._id}>
-              <img src={i.cover_photo} alt="mangaImg" className="w-[12rem] h-[12rem] mx-auto mb-4"/>
-              <h2>{i.title}</h2>
+
+        <div className="lg:col-span-3">
+          <div className="flex flex-col items-center my-10 gap-4 lg:items-start lg:mt-0 lg:gap-16">
+            <h1 className="text-center lg:text-3xl">Search your next mangas <span className="lg:text-2xl">🤤</span></h1>
+            <input className="text-white text-center w-[50%] rounded bg-white/10 border-2 border-white/20 h-7 focus:outline-none md:w-[35%] lg:h-9 lg:w-[48%]" defaultValue={title} type="text" name="title" id="title" ref={titleRef} onKeyUp={capture_info} placeholder="Searh mangas"/>
+          </div>
+
+          <div className="flex flex-col text-center items-center gap-12 my-20 lg:grid lg:grid-cols-3 lg:gap-6 lg:w-[90%] lg:mt-0">
+            {mangas?.map(i =>
+            <div key={i._id} className="w-[100%] lg:w-[100%]">
+              <img src={i.cover_photo} alt="mangaImg" className="w-[70%] h-[17rem] mx-auto mb-4 | md:w-[40%] | lg:w-[100%] lg:col-span-1 lg:mb-2"/>
+              <h2 className="font-bold text-white/60 | lg:text-start">{i.title}</h2>
+            </div>)}
+            <div className="bg-white w-[40%] h-10 rounded-lg md:w-[30%]">
+              <button className="text-black border-r-2 border-r-black w-[50%] h-[100%]" onClick={()=>{setPageNum(pageNum-1); pageNum <= 1 ? setPageNum(1) : null }}>
+              <AiOutlineArrowLeft className="mx-auto"/>
+              </button>
+              {mangas?.length === 6 && <button className="text-black w-[50%] h-[100%]" onClick={()=>{setPageNum(pageNum+1)}}>
+              <AiOutlineArrowRight className="mx-auto" />
+              </button>}
             </div>
-          )}
+          </div>
         </div>
+
       </div>
     </div>
     <Footer />

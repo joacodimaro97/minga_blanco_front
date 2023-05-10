@@ -58,12 +58,12 @@ export default function NavBar() {
                     </div>
                     <div className="flex items-start justify-center h-full w-full p-4">
                         <ul className="flex flex-col justify-start font-bold items-center w-full  h-[60%] md:items-center space-y-1">
-                            <a href="/" className="text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Home</a>
+                            <Anchor to="/" className="text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Home</Anchor>
                             
                             {!token && <a href="/auth" className= "text-white h-[4vh] rounded-[7%] hover:bg-red hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Log in</a>}
                             {token && <a onClick={handleLogout} className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Logout</a>}
                             {token && <a className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Favourites</a>}
-                            <li className="text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Mangas</li>
+                            <Anchor to='/mangas' className="text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Mangas</Anchor>
                             <li className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Chapters</li>
                             {role===0 && <Anchor to={'/new-role'} className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">New Role</Anchor>}
 
