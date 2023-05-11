@@ -9,7 +9,7 @@ import Footer from '../components/Footer.jsx'
 import AuthorForm from '../pages/AuthorForm.jsx'
 import NewRole from '../pages/NewRole.jsx'
 import Authform from '../pages/Authform.jsx'
-import Manga from '../pages/Mangas.jsx'
+import Mangas from '../pages/Mangas.jsx'
 
 let token = localStorage.getItem('token')
 let role = localStorage
@@ -27,7 +27,7 @@ const routes = createBrowserRouter([
       {path: '/auth', element:(token? <div>Not Found!</div> : <Authform />)},
       {path: '/register', element: (token? <div>Not Found!</div>: <Register/>)},
       {path: '/login', element: (token? <div>Not Found!</div> : <Login />)},
-      {path: '/mangas', element:< Manga/>}
+      {path: '/mangas', element:< Mangas/>}
     ]
   },
 
