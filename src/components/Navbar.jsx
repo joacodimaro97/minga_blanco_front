@@ -35,7 +35,7 @@ export default function NavBar() {
     let user = JSON.parse(localStorage.getItem('user'))
 
 
-   
+    let role = JSON.parse(localStorage.getItem('user')).role
    
 
 
