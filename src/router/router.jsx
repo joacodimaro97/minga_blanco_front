@@ -11,6 +11,11 @@ import NewRole from '../pages/NewRole.jsx'
 import Authform from '../pages/Authform.jsx'
 import Mangasform from '../pages/Mangas.jsx'
 import Author from '../pages/Author.jsx'
+import MangaDetail from '../pages/Manga.jsx'
+
+
+
+
 
 let token = localStorage.getItem('token')
 
@@ -28,7 +33,8 @@ const routes = createBrowserRouter([
       {path: '/register', element: (token? <div>Not Found!</div>: <Register/>)},
       {path: '/login', element: (token? <div>Not Found!</div> : <Login />)},
       {path: '/mangas-form', element: (token?  <Mangasform/> : <div>Not Found!</div>)},
-      {path: '/author/:id', element: (token? <Author /> : <div>Not Found!</div>)}
+      {path: '/authors/:id', element: (token? <Author /> : <div>Not Found!</div>)},
+      {path: '/mangas/:id/:page', element:(token? <MangaDetail /> : <div>Not Found!</div>)}
     ]
   },
 
