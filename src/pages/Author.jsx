@@ -41,7 +41,7 @@ const {id} = useParams()
 const [author, setAuthor] = useState()
 const [mangas, setMangas] = useState([])
 const [setOn, setIsOn] = useState(false);
-
+console.log('hola')
 
 
 
