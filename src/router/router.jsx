@@ -13,6 +13,7 @@ import Page from '../pages/Page.jsx'
 import Mangas from '../pages/Mangas.jsx'
 import Mangasform from '../pages/Mangas.jsx'
 
+
 let token = localStorage.getItem('token')
 let role = localStorage
 
@@ -32,6 +33,7 @@ const routes = createBrowserRouter([
       {path: '/login', element: (token? <div>Not Found!</div> : <Login />)},
       {path: '/mangas-form', element: (token?  <Mangasform/> : <div>Not Found!</div>)},
       {path: '/mangas', element:< Mangas/>}
+
 
     ]
   },

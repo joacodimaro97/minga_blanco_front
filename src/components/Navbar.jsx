@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link as Anchor, useNavigate } from 'react-router-dom'
+
 import { useSelector } from 'react-redux';
 import axios from "axios"
 import apiUrl from "../../api"
@@ -17,12 +18,15 @@ export default function NavBar() {
         
         let headers = {headers:{'Authorization':`Bearer ${token}`}}
         axios.post(apiUrl+'auths/signout',null,headers)
+
             .then(res=> {
                 localStorage.removeItem('token')
                 localStorage.removeItem('user')
                 navigate('/')
             })
-            .catch(err => alert(err))        
+
+            .catch(err => alert(err))
+
     }
     
     const menuClick = () => {
@@ -33,8 +37,14 @@ export default function NavBar() {
         setMenu(false);
     };
 
+
+    let user = JSON.parse(localStorage.getItem('user'))
+
+
+
     let role = JSON.parse(localStorage.getItem('user')).role
-    // AGREGAR CONDICIONAL PARA QUE NEW ROLE SOLO SE MUESTRE EN LOS USERS DE ROL "0"
+   
+
 
     return (
         <nav className="h-[10vh] flex justify-between p-4 bg-black">
@@ -59,6 +69,10 @@ export default function NavBar() {
                     </div>
                     <div className="flex items-start justify-center h-full w-full p-4">
                         <ul className="flex flex-col justify-start font-bold items-center w-full  h-[60%] md:items-center space-y-1">
+
+                           
+                            
+
                         <Anchor to={"/"} className="text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[35%] transition duration-1000 ease-in-out cursor-pointer">Home</Anchor>
                             
                             {!token && <Anchor to={'/auth'} className= "text-white h-[4vh] rounded-[7%] hover:bg-red hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Log in</Anchor>}
@@ -67,7 +81,8 @@ export default function NavBar() {
                             {token && <Anchor className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Favourites</Anchor>}
                             {token && <Anchor to={'/mangas-form'} className="text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">New Manga</Anchor>}
                             {token && <Anchor to={'/chapter-form/:id_manga'} className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Chapters</Anchor>}
-                            {token && <Anchor to={'/new-role'} className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">New Role</Anchor>}
+                            {role===0 && <Anchor to={'/new-role'} className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">New Role</Anchor>}
+
 
                         </ul>
                     </div>
