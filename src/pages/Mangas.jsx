@@ -52,9 +52,11 @@ export default function Manga() {
       setReload(!reload)
     }
     
-    console.log(dmcsCategories)
+ 
     console.log(mangas)
-    console.log(pageNum)
+
+
+
   return (
     <>
     <div className="bg-black text-white w-[100%] h-[100%] flex flex-col pt-14 | lg:h-[1100px]">

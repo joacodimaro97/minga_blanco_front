@@ -35,12 +35,6 @@ useEffect(()=>{
     })
 }, [])
 
-
-
-
-
-
-
     return (
     <>
     <Navbar />
