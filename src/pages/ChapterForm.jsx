@@ -5,12 +5,8 @@ import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import Main from '../App.jsx'
 
-
 export default function ChapterForm() {
-  let token = localStorage.getItem('token')
-  let headers = {headers:{'Authorization':`Bearer ${token}`}}
   let chapterId = useParams()
-  
   console.log(chapterId)
   let title = useRef()
   let order = useRef()
@@ -57,7 +53,6 @@ export default function ChapterForm() {
   })
 }
 
-
     // let role = localStorage.getItem('role')
     let role = JSON.parse(localStorage.getItem('user'))?.role;
     console.log(role);
@@ -88,9 +83,7 @@ export default function ChapterForm() {
 
     </>
     ):(
-
       <Main /> 
-
     )}
 
     </>
