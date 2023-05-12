@@ -4,10 +4,12 @@ import { useRef } from 'react';
 import apiUrl from '../../api';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import "animate.css";
 
 
 
 export default function Login({setShow, show}) {
+
   let email = useRef()
   let password = useRef()
   const navigate = useNavigate()
@@ -18,27 +20,20 @@ function handleSubmit(e){
       email: email.current.value,
       password: password.current.value,
     }
-    axios.post(apiUrl + 'auths/signin', dataSignin, headers)
+
+    axios.post(apiUrl + 'auth/signin', dataSignin, headers)
       .then((res) => {
-<<<<<<< HEAD
 
         localStorage.setItem('token', res.data.token)
         localStorage.setItem('user', JSON.stringify(res.data.user))
         navigate('/', { replace: true })
 
-        
-
-=======
-        localStorage.setItem('token',res.data.token)
-        localStorage.setItem('user',JSON.stringify(res.data.user))
-        navigate('/')
->>>>>>> 43f55f3b13cf3721bb72aa99658e247902e3e6cf
         Swal.fire(
           `Welcome ${res.data.user.email}`,
           'You are logged in!',
           'success'
         )
-       
+  
       })
       .catch((err) => {
         console.error(err);
@@ -55,7 +50,7 @@ function handleSubmit(e){
     let headers = {headers:{'Authorization':`Bearer ${token}`}}
 
   return (
-    <main className='flex justify-center align-center items-center h-screen w-screen'>
+    <main className='flex justify-center align-center items-center h-screen w-screen animate__animated animate__fadeIn'>
       <div className='w-[100%]  h-[90%]  lg:p-8 lg:mt-10 flex flex-col  lg:w-[40%] lg:h-[90%] lg:justify-evenly items-center'>
       <img src="./images/logo.png" className='w-[140px] mb-10' alt="" />
       <h1 className='text-[32px] font-bold'>Welcome!</h1>
@@ -63,11 +58,11 @@ function handleSubmit(e){
       <form action="get" onSubmit={handleSubmit} className='w-[90%] h-[100%] md:text-[12px] flex flex-col  lg:h-[50vh] lg:w-[24vw] justify-around '>
       <div className='w-[100%] flex flex-col'>
       <label htmlFor="email" className='text-[#898989] '>Email</label>
-      <input type="text" id='email' className='border-b-[1px] border-[#626161]' ref={email}/>
+      <input type="text" id='email' className='border-b-[1px] border-[#626161] p-1' ref={email}/>
       </div>
       <div className='w-[100%] flex flex-col'>
       <label htmlFor="pwd" className='text-[#898989] '>Password</label>
-      <input type="password" id='pwd' className='border-b-[1px] border-[#626161]' ref={password}/>
+      <input type="password" id='pwd' className='border-b-[1px] border-[#626161] p-1' ref={password}/>
       </div>
       <button type='submit' className='border border-black w-[100%]  lg:w-[344px] h-[48px] rounded-md bg-gradient-to-r from-[#434343] to-[#000] text-white font-bold'>Sing in</button>
       <button className='border border-black flex justify-center text-[#898989] font-bold items-center lg:w-[344px] h-[48px] rounded-md'><img src="./images/Google.png" className='w-[24px]' alt="" />Sing in with Google</button>
