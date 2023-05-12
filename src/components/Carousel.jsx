@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import apiUrl from '../../api';
-
+import { useSelector } from "react-redux"
 export default function Carousel() {
+  const store = useSelector(store => console.log(store) )
     useEffect(
         ()=>
         { axios(apiUrl+'resources')
