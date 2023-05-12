@@ -9,8 +9,13 @@ import Footer from '../components/Footer.jsx'
 import AuthorForm from '../pages/AuthorForm.jsx'
 import NewRole from '../pages/NewRole.jsx'
 import Authform from '../pages/Authform.jsx'
+import Page from '../pages/Page.jsx'
+import Mangas from '../pages/Mangas.jsx'
+import Mangasform from '../pages/Mangas.jsx'
+
 
 let token = localStorage.getItem('token')
+let role = localStorage
 
 const routes = createBrowserRouter([
   {path: '/', element: (
@@ -22,9 +27,14 @@ const routes = createBrowserRouter([
     children: [
       {path: '/', element:<Main/>, errorElement:<div>ups hubo un error</div>}, //aca es es el home
       {path: '/chapter-form/:id_manga', element:<ChapterForm/>},
+      {path: '/chapters/:id/:page', element: <Page/>},
       {path: '/auth', element:(token? <div>Not Found!</div> : <Authform />)},
       {path: '/register', element: (token? <div>Not Found!</div>: <Register/>)},
       {path: '/login', element: (token? <div>Not Found!</div> : <Login />)},
+      {path: '/mangas-form', element: (token?  <Mangasform/> : <div>Not Found!</div>)},
+      {path: '/mangas', element:< Mangas/>}
+
+
     ]
   },
 
@@ -34,6 +44,3 @@ const routes = createBrowserRouter([
 ])
 
 export default routes
-
-
-//para direcciones usar useNavegate, cuando este conectado y ponga singup
