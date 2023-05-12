@@ -20,6 +20,7 @@ function handleSubmit(e){
     }
     axios.post(apiUrl + 'auths/signin', dataSignin, headers)
       .then((res) => {
+<<<<<<< HEAD
 
         localStorage.setItem('token', res.data.token)
         localStorage.setItem('user', JSON.stringify(res.data.user))
@@ -27,6 +28,11 @@ function handleSubmit(e){
 
         
 
+=======
+        localStorage.setItem('token',res.data.token)
+        localStorage.setItem('user',JSON.stringify(res.data.user))
+        navigate('/')
+>>>>>>> 43f55f3b13cf3721bb72aa99658e247902e3e6cf
         Swal.fire(
           `Welcome ${res.data.user.email}`,
           'You are logged in!',

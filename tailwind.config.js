@@ -24,6 +24,7 @@ module.exports = {
       
   },
 
+
     screens: {'mobile': '320px'}
   }
   },

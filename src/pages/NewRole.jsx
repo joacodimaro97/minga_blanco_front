@@ -6,6 +6,7 @@ import group1 from '/images/newRole1.png'
 import group2 from '/images/newRole2.png'
 
 export default function NewRole() {
+    let user = JSON.parse(localStorage.getItem('user'))
   return (
     <>
     <NavBar/>
@@ -14,7 +15,7 @@ export default function NewRole() {
             <h1 className="text-center text-lg">Change role to</h1>
             <img src={logo} alt="logoImg" className="w-32"/>
 
-            <Anchor to={'/author-form'} className='w-[100%] flex justify-center'>
+            <Anchor to={user.role===0 ? '/author-form' : '/'} className='w-[100%] flex justify-center'>
                 <label htmlFor="group2" className="w-[80%] cursor-pointer text-center border-2 border-black/25 rounded-lg mt-4 px-3 | md:w-[50%] md:flex md:justify-center | lg:justify-between lg:py-2 lg:text-start active:border-3 active:border-black">
                     <div className="flex gap-7">
                         <img src={group1} className="hidden | lg:inline-block w-20 h-9 self-center"/>
