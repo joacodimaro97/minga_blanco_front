@@ -57,7 +57,6 @@ export default function Manga() {
     console.log(pageNum)
   return (
     <>
-    <NavBar />
     <div className="bg-black text-white w-[100%] h-[100%] flex flex-col pt-14 | lg:h-[1100px]">
       <div className="lg:grid lg:grid-cols-4">
 
@@ -85,7 +84,7 @@ export default function Manga() {
             <div key={i._id} className="w-[100%] lg:w-[100%]">
               <h2 className="inline-block text-white/60 mb-1 | lg:text-start">{i.title}</h2>
               <img src={i.cover_photo} alt="mangaImg" className="w-[70%] h-[17rem] mx-auto mb-4 | md:w-[40%] | lg:w-[100%] lg:col-span-1 lg:mb-4"/>
-              <Anchor className="text-white bg-red-600 px-3 rounded w-[50%] mx-auto | md:w-[30%] lg:w-[32%] lg:mx-0" to={`/manga/${i._id}`}>Details</Anchor>
+              <Anchor className="text-white bg-red-600 px-3 rounded w-[50%] mx-auto | md:w-[30%] lg:w-[32%] lg:mx-0" to={`/mangas/${i._id}/:page`}>Details</Anchor>
             </div>)}
             <div className="bg-white w-[40%] h-10 rounded-lg md:w-[30%] col-span-3 | lg:mt-5 ">
               <button className="text-black border-r-2 border-r-black w-[50%] h-[100%] text-center" onClick={()=>{setPageNum(pageNum-1); pageNum <= 1 ? setPageNum(1) : null }}>
@@ -102,7 +101,6 @@ export default function Manga() {
 
       </div>
     </div>
-    <Footer />
     </>
   )
 }

@@ -32,7 +32,8 @@ const routes = createBrowserRouter([
       {path: '/register', element: (token? <div>Not Found!</div>: <Register/>)},
       {path: '/login', element: (token? <div>Not Found!</div> : <Login />)},
       {path: '/mangas-form', element: (token?  <Mangasform/> : <div>Not Found!</div>)},
-      {path: '/mangas', element:< Mangas/>}
+      {path: '/mangas', element:< Mangas/>},
+      {path: '/mangas/:id/:page', element:(token? <MangaDetail /> : <div>Not Found!</div>)}
 
 
     ]
