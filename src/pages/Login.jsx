@@ -16,6 +16,8 @@ export default function Login({setShow, show}) {
   let user = JSON.parse(localStorage.getItem('user'))
 function handleSubmit(e){
     e.preventDefault();
+    let token = localStorage.getItem('token')
+    let headers = {headers:{'Authorization':`Bearer ${token}`}}
     let dataSignin = {
       email: email.current.value,
       password: password.current.value,
@@ -23,7 +25,6 @@ function handleSubmit(e){
 console.log(dataSignin)
     axios.post(apiUrl + 'auth/signin', dataSignin, headers)
       .then((res) => {
-
         console.log(res.data);
         console.log(res.data.token)
         console.log(res.data.user)
