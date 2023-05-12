@@ -40,6 +40,8 @@ const routes = createBrowserRouter([
       {path: '/authors/:id', element: (token? <Author /> : <div>Not Found!</div>)},
       {path: '/mangas/:id/:page', element:(token? <MangaDetail /> : <div>Not Found!</div>)},
       {path: '/mangas', element:< Mangas/>}
+
+
     ]
   },
 
