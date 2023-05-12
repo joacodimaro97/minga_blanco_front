@@ -33,17 +33,8 @@ export default function NavBar() {
         setMenu(false);
     };
 
-<<<<<<< HEAD
-    let user = JSON.parse(localStorage.getItem('user'))
-
-
-   
-   
-
-=======
     let role = JSON.parse(localStorage.getItem('user')).role
     // AGREGAR CONDICIONAL PARA QUE NEW ROLE SOLO SE MUESTRE EN LOS USERS DE ROL "0"
->>>>>>> 43f55f3b13cf3721bb72aa99658e247902e3e6cf
 
     return (
         <nav className="h-[10vh] flex justify-between p-4 bg-black">
@@ -68,9 +59,8 @@ export default function NavBar() {
                     </div>
                     <div className="flex items-start justify-center h-full w-full p-4">
                         <ul className="flex flex-col justify-start font-bold items-center w-full  h-[60%] md:items-center space-y-1">
-                            <a href="/" className="text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Home</a>
+                        <Anchor to={"/"} className="text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[35%] transition duration-1000 ease-in-out cursor-pointer">Home</Anchor>
                             
-<<<<<<< HEAD
                             {!token && <Anchor to={'/auth'} className= "text-white h-[4vh] rounded-[7%] hover:bg-red hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Log in</Anchor>}
                             {!token && <Anchor to={'/auth'} className= "text-white h-[4vh] rounded-[7%] hover:bg-red hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Register</Anchor>}
                             {token && <Anchor onClick={handleLogout} className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Logout</Anchor>}
@@ -78,11 +68,6 @@ export default function NavBar() {
                             {token && <Anchor to={'/mangas-form'} className="text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">New Manga</Anchor>}
                             {token && <Anchor to={'/chapter-form/:id_manga'} className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Chapters</Anchor>}
                             {token && <Anchor to={'/new-role'} className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">New Role</Anchor>}
-=======
-                            <li className="text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Mangas</li>
-                            <li className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Chapters</li>
-                            {role===0 && <Anchor to={'/new-role'} className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">New Role</Anchor>}
->>>>>>> 43f55f3b13cf3721bb72aa99658e247902e3e6cf
 
                         </ul>
                     </div>
