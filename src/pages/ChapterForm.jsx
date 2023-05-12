@@ -4,9 +4,6 @@ import apiUrl from "../../api";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import Main from '../App.jsx'
-import NavBar from "../components/Navbar";
-import 'animate.css' ;
-
 
 export default function ChapterForm() {
   let chapterId = useParams()
@@ -14,7 +11,7 @@ export default function ChapterForm() {
   let title = useRef()
   let order = useRef()
   let pages = useRef()
-  
+
   function handleForm(e){
     e.preventDefault()
     let inputpages = pages.current.value
@@ -26,20 +23,16 @@ export default function ChapterForm() {
       pages: listPages
     }
     console.log(data)
-    
-    
-    let headers = {headers:{'Authorization':`Bearer ${token}`}}
-    
     axios.post(apiUrl+"chapters", data,headers)
     .then(res => {console.log(res)
-      Swal.fire({
+    Swal.fire({
       icon: 'success',
       title: 'Success',
       text: 'Author created succesfully',
       confirmButtonText:'OK',
     })
   })
-  .catch(error => {
+    .catch(error => {
     console.error(error)
     if (error.response && error.response.data){
       Swal.fire({
@@ -60,40 +53,37 @@ export default function ChapterForm() {
   })
 }
 
-let token = localStorage.getItem('token')
-let role = JSON.parse(localStorage.getItem('user'))?.role;
-// let role = localStorage.getItem('role')
-console.log(role);
+    // let role = localStorage.getItem('role')
+    let role = JSON.parse(localStorage.getItem('user'))?.role;
+    console.log(role);
+    let token = localStorage.getItem('token')
     console.log(token);
-    
-    
-    return (
+    let headers = {headers:{'Authorization':`Bearer ${token}`}}
+
+
+  return (
     <>
     { role == 1 || role == 2 ?(
     <>
-    
-    <section className="grid h-screen place-content-center text-slate bg-black animate__animated animate__fadeIn">
-     <div className="mb-6 text-center text-black font-thin">
-     <h1 className="text-5xl text-white ">New Chapter</h1>
-   
-     </div>
-     <form className="flex flex-col items-center justify-center space-y-6 pt-14" onSubmit={(e)=>handleForm(e)}>
+    <section className="grid h-screen place-content-center text-slate bg-black">
+      <div className="mb-6 text-center text-black font-thin">
+        <h1 className="text-5xl text-white ">New Chapter</h1>
+      </div>
+      <form className="flex flex-col items-center justify-center space-y-6 pt-14" onSubmit={(e)=>handleForm(e)}>
 
-     <input type="text" id="Insert title" name="title" placeholder="Insert title" className="w-80 appearance-none  border-0  p-2 px-4 text-white border-b border-gray-500 bg-transparent focus:outline-none focus:ring-0" ref={title}/>
+        <input type="text" id="Insert title" name="title" placeholder="Insert title" className="w-80 appearance-none  border-0  p-2 px-4 text-white border-b border-gray-500 bg-transparent focus:outline-none focus:ring-0" ref={title}/>
      
-     <input type="text" id="Insert order" name="Insert order" placeholder="Insert order" className="w-80 appearance-none  border-0  p-2 px-4 text-white border-b border-gray-500 bg-transparent focus:outline-none focus:ring-0" ref={order} />
+        <input type="text" id="Insert order" name="Insert order" placeholder="Insert order" className="w-80 appearance-none  border-0  p-2 px-4 text-white border-b border-gray-500 bg-transparent focus:outline-none focus:ring-0" ref={order} />
      
-     <input type="array" id="Insert pages" name="Insert pages" placeholder="Insert pages" className="w-80 appearance-none  border-0  p-2 px-4 text-white border-b border-gray-500 bg-transparent focus:outline-none focus:ring-0 mb-20" ref={pages} />
+        <input type="array" id="Insert pages" name="Insert pages" placeholder="Insert pages" className="w-80 appearance-none  border-0  p-2 px-4 text-white border-b border-gray-500 bg-transparent focus:outline-none focus:ring-0 mb-20" ref={pages} />
      
-     <button className=" w-80 rounded-md bg-white p-2 px-16 py-4 text-black t-10 font-bold text-2xl" type="submit" value={"send"}> Send </button>
-     </form>
+        <button className=" w-80 rounded-md bg-white p-2 px-16 py-4 text-black t-10 font-bold text-2xl" type="submit" value={"send"}> Send </button>
+      </form>
     </section>
 
     </>
     ):(
-
-        <Main />
-
+      <Main /> 
     )}
 
     </>

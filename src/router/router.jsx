@@ -12,12 +12,15 @@ import Authform from '../pages/Authform.jsx'
 import Mangasform from '../pages/Mangas.jsx'
 import Author from '../pages/Author.jsx'
 import MangaDetail from '../pages/Manga.jsx'
+import Page from '../pages/Page.jsx'
+import Mangas from '../pages/Mangas.jsx'
 
 
 
 
 
 let token = localStorage.getItem('token')
+let role = localStorage
 
 const routes = createBrowserRouter([
   {path: '/', element: (
@@ -29,12 +32,14 @@ const routes = createBrowserRouter([
     children: [
       {path: '/', element:<Main/>, errorElement:<div>ups hubo un error</div>}, //aca es es el home
       {path: '/chapter-form/:id_manga', element:<ChapterForm/>},
+      {path: '/chapters/:id/:page', element: <Page/>},
       {path: '/auth', element:(token? <div>Not Found!</div> : <Authform />)},
       {path: '/register', element: (token? <div>Not Found!</div>: <Register/>)},
       {path: '/login', element: (token? <div>Not Found!</div> : <Login />)},
       {path: '/mangas-form', element: (token?  <Mangasform/> : <div>Not Found!</div>)},
       {path: '/authors/:id', element: (token? <Author /> : <div>Not Found!</div>)},
-      {path: '/mangas/:id/:page', element:(token? <MangaDetail /> : <div>Not Found!</div>)}
+      {path: '/mangas/:id/:page', element:(token? <MangaDetail /> : <div>Not Found!</div>)},
+      {path: '/mangas', element:< Mangas/>}
     ]
   },
 
@@ -44,6 +49,3 @@ const routes = createBrowserRouter([
 ])
 
 export default routes
-
-
-//para direcciones usar useNavegate, cuando este conectado y ponga singup
