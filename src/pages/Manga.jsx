@@ -22,10 +22,11 @@ const closeRead = () => {
 }
 
 
-
+let token = localStorage.getItem('token')  
+let headers = {headers:{'Authorization':`Bearer ${token}`}}
 
 useEffect(()=>{
-    axios.get(`http://localhost:8000/api/mangas/${id}`)
+    axios.get(`http://localhost:8000/api/mangas/${id}`,headers)
     .then(response =>{
         setMangas(response.data.response)
     })

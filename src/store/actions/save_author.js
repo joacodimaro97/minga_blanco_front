@@ -18,10 +18,10 @@ const saveAuthorData = createAction(
 
 const saveMangas = createAction(
     "saveMangas",
-    (objeto) => {
+    (booleano) => {
         return {
             payload: {
-                switchOn: objeto.switchOn,
+                switchOn: booleano,
             }
         }
     }
