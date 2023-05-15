@@ -24,8 +24,12 @@ const next = () =>{
     }   
 }
 
+
+let token = localStorage.getItem('token')  
+let headers = {headers:{'Authorization':`Bearer ${token}`}}
+
 useEffect(()=>{
-    axios.get(`http://localhost:8000/api/chapters?manga_id=${id}&page=${page}`)
+    axios.get(`http://localhost:8000/api/chapters?manga_id=${id}&page=${page}`,headers)
     .then(response=>{
         setChapter(response.data.response)
         setFilterChapter(response.data.response) 

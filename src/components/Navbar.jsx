@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link as Anchor, useNavigate } from 'react-router-dom'
-
+import { Link as Anchor, useNavigate,useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import axios from "axios"
 import apiUrl from "../../api"
@@ -11,7 +10,8 @@ import "animate.css";
 export default function NavBar() {
     const [menu, setMenu] = useState(false);
     const {order, title} = useSelector( store => store.data)
-
+    
+    const location = useLocation()
     const navigate = useNavigate()
     let token = localStorage.getItem('token')
 
@@ -43,9 +43,9 @@ export default function NavBar() {
 
 
     return (
-        <nav className="h-[10vh] flex justify-between p-4 bg-black">
+        <nav className={`h-[10vh] flex justify-between p-4 ${location.pathname === '/new-role' ? 'bg-transparent fixed w-screen z-10' : 'bg-black'}`}>
             <button className="contents" onClick={menuClick}>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-white hover:bg-white hover:text-black hover:rounded-md  ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={` hover:bg-white hover:text-black hover:rounded-md ${location.pathname === '/new-role' ? 'text-black' : 'text-white'}  `}>
                     <path strokeLinecap="round" strokeLinejoin="round" d={menu ? "M6 18L18 6M6 6l12 12" : "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"}/></svg>
             </button>
             

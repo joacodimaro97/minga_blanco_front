@@ -23,7 +23,7 @@ export default function Author() {
 const store = useSelector(store => console.log(store.save_author))
 const switchOn = useSelector(state => state.save_author.switchOn)
 const dispatch = useDispatch()
-console.log(switchOn)
+
 
 
 function handleSaveAuthor(authorData){
@@ -41,13 +41,13 @@ const {id} = useParams()
 const [author, setAuthor] = useState()
 const [mangas, setMangas] = useState([])
 const [setOn, setIsOn] = useState(false);
-console.log('hola')
+
 
 
 
 const handleClick = () => {
-  setIsOn(!setOn);
-  dispatch(saveMangas(setOn))
+  setIsOn(!setOn); 
+  dispatch(saveMangas(!setOn))
 }
 
 
@@ -92,7 +92,7 @@ const mangas_photo = mangas.map(manga => manga.cover_photo)
 console.log(mangas_photo)
 const mangas_title = mangas.map(manga => manga.title)
 console.log(mangas_title)
-
+console.log(mangas)
     return (
       <>
       <Navbar/>
@@ -124,7 +124,7 @@ console.log(mangas_title)
       </div>}
       <div className=" w-screen p-1 h-[60%] flex flex-wrap justify-center sm:w-[80%] md:w-[50%]">
        
-      {mangas.map(manga => (<Card manga={manga} />))}
+      {mangas.map(manga => (<Card  manga={manga} />))}
       
       </div>
       </section>
