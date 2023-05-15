@@ -29,14 +29,15 @@ useEffect(()=>{
     .then(response=>{
         setChapter(response.data.response)
         setFilterChapter(response.data.response) 
-
+console.log(response)
     })
     .catch(error=>{
         console.log(error)
     })
 
 }, [page])
-
+console.log(filterChapter)
+console.log(chapter)
 return (
     <>
      
@@ -73,10 +74,11 @@ return (
        
            
                
-                {chapter.length >= 4 && <button className="bg-[#3f3f3f] text-white rounded-[40%] h-[2rem] w-[3rem] " onClick={next}>Next</button>}
+                {chapter?.length >= 4 && <button className="bg-[#3f3f3f] text-white rounded-[40%] h-[2rem] w-[3rem] " onClick={next}>Next</button>}
             
         </div>
       </div>
     </>
 )
 }
+

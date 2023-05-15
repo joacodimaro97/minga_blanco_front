@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import 'animate.css';
 import SwitchButton from "../components/SwitchButton";
 import axios from "axios";
-import { useEffect, useState,useRef} from "react";
+import { useEffect, useState} from "react";
 import save_author from "../store/actions/save_author";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -23,7 +23,7 @@ export default function Author() {
 const store = useSelector(store => console.log(store.save_author))
 const switchOn = useSelector(state => state.save_author.switchOn)
 const dispatch = useDispatch()
-
+console.log(switchOn)
 
 
 function handleSaveAuthor(authorData){
@@ -41,10 +41,18 @@ const {id} = useParams()
 const [author, setAuthor] = useState()
 const [mangas, setMangas] = useState([])
 const [setOn, setIsOn] = useState(false);
+console.log('hola')
+
+
+
 const handleClick = () => {
   setIsOn(!setOn);
-  dispatch(saveMangas({ switchOn: !switchOn }))
+  dispatch(saveMangas(setOn))
 }
+
+
+
+
 let token = localStorage.getItem('token')
 let headers = {headers:{'Authorization':`Bearer ${token}`}}
 useEffect(() => {

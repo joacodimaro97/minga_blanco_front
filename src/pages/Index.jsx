@@ -1,11 +1,12 @@
-import React from 'react'
-import Carousel from '../components/Carousel'
-import Button from '../components/Button'
+import React from 'react';
+import Carousel from '../components/Carousel';
+import Button from '../components/Button';
+import 'animate.css';
 
 export default function Index() {
     return (
       
-        <main className="bg-black min-w-full flex flex-col  min-h-[80vh]  p-4 justify-between items-center sm:min-h-[80vh] sm:z-1 sm:justify-evenly md:min-h-[90vh] md:bg-fondoOscuro md:bg-fondo 2xl:min-h-[110vh]">
+        <main className="bg-black min-w-full flex flex-col  min-h-[80vh]  p-4 justify-between items-center sm:min-h-[80vh] sm:z-1 sm:justify-evenly md:min-h-[90vh] md:bg-fondoOscuro md:bg-fondo 2xl:min-h-[110vh] animate__animated animate__zoomIn">
            <div className="md:h-[50%] md:w-[50%] md:rounded-full md:bg-gradient-to-r from-[#121226] to-[#0b094a] blur-[115px] absolute right-0 z-0"></div>
             <h1 class="text-white hidden sm:block sm:text-center sm: text-[2rem] sm:font-bold md:text-[4rem] md:text-gray-300 z-10">Best manga reader</h1>
             <img className="opacity-40 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] z-0 md:hidden" src="./images/narutofon.png" alt="" />

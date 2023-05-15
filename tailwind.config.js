@@ -24,10 +24,12 @@ module.exports = {
       
   },
 
-    screens: {'mobile': '320px'}
+    screens: {'mobile': {'min': '320px', 'max': '767px'} }
   }
   },
   variants: {},
   plugins: []
  }
+
+ 
 

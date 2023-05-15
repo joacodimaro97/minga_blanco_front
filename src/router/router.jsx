@@ -14,6 +14,7 @@ import Author from '../pages/Author.jsx'
 import MangaDetail from '../pages/Manga.jsx'
 import Page from '../pages/Page.jsx'
 import Mangas from '../pages/Mangas.jsx'
+import EditChapter from '../pages/EditChapter.jsx'
 
 
 
@@ -39,7 +40,11 @@ const routes = createBrowserRouter([
       {path: '/mangas-form', element: (token?  <Mangasform/> : <div>Not Found!</div>)},
       {path: '/authors/:id', element: (token? <Author /> : <div>Not Found!</div>)},
       {path: '/mangas/:id/:page', element:(token? <MangaDetail /> : <div>Not Found!</div>)},
-      {path: '/mangas', element:< Mangas/>}
+      {path: '/mangas', element:< Mangas/>},
+      {path: '/edit', element:(token? <EditChapter/> : <div>Not Found!</div>)}
+
+
+
     ]
   },
 

@@ -12,7 +12,6 @@ export default function AuthForm(){
     return (
         <>
         {show ? <Login setShow={setShow} show={show} /> : <Register setShow={setShow} show={show} />}
-
         
         
         </>
