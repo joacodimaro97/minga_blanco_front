@@ -48,7 +48,6 @@ const AuthorForm = () => {
   }
   return (
     <>
-    <NavBar className=""/>
     <div className='grid place-items-center w-[100vw] h-[90vh] bg-black text-white | xl:h-[90vh] | 2xl:h-[90vh] 2xl:py-16'>
       <form className='flex flex-col items-center justify-center h-[100%] w-[100%] gap-8 | md:w-[75%] | lg:w-[60%] | xl:gap-10 | 2xl:justify-between '>
         <h1 className='text-3xl | xl:text-5xl'>New Author</h1>

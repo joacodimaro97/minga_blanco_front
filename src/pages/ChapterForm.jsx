@@ -7,7 +7,6 @@ import Main from '../App.jsx'
 
 export default function ChapterForm() {
   let chapterId = useParams()
-  console.log(chapterId)
   let title = useRef()
   let order = useRef()
   let pages = useRef()
@@ -55,11 +54,6 @@ export default function ChapterForm() {
 
     // let role = localStorage.getItem('role')
     let role = JSON.parse(localStorage.getItem('user'))?.role;
-    console.log(role);
-    let token = localStorage.getItem('token')
-    console.log(token);
-    let headers = {headers:{'Authorization':`Bearer ${token}`}}
-
 
   return (
     <>
