@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import apiUrl from '../../api';
-
+import { useSelector } from "react-redux"
 export default function Carousel() {
+  const store = useSelector(store => console.log(store) )
     useEffect(
-        ()=>{ axios(apiUrl+'resources')
+        ()=>
+        { axios(apiUrl+'resources')
         .then(res=>setImages(res.data.resources))
         .catch(err=>console.log(err))
         },
-        [] //array vacio, ya que necesitamos fetchear una sola vez al montar el componente
+        [] //array vacio, ya que necesitamos montar una sola vez lo que traemos de la api
     )
 
 
@@ -31,7 +33,7 @@ useEffect(() => {
 
 
   return (
-    <div id="controls-carousel" class="hidden md:relative md:w-[50%] md:flex md:items-center md:justify-center">
+    <div id="controls-carousel" className="hidden md:relative md:w-[50%] md:flex md:items-center md:justify-center">
         
     <img className="h-[18rem] w-[18rem] md:w-[38vw] md:h-[20rem] lg:w-[35rem] lg:h-[30rem] brightness-90" src={images[counter]?.cover_photo} alt="IMG" />
        

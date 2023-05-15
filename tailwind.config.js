@@ -18,10 +18,18 @@ module.exports = {
       dark:'#000',
       green:'#0F5C2E',
       blueviolet:'#4338CA'
-    }
+    },
+    fontFamily: {
+      'montserrat': ['Montserrat'],
+      
+  },
+
+    screens: {'mobile': {'min': '320px', 'max': '767px'} }
   }
   },
   variants: {},
   plugins: []
  }
+
+ 
 
