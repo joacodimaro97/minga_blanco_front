@@ -36,8 +36,8 @@ export default function NavBar() {
     };
 
 
-    // let user = JSON.parse(localStorage.getItem('user'))
- /*    let role = JSON.parse(localStorage.getItem('user')).role */
+    let user = JSON.parse(localStorage.getItem('user'))
+    let role = JSON.parse(localStorage.getItem('user')).role
    
 
 
@@ -79,7 +79,8 @@ export default function NavBar() {
                             {token && <Anchor to={'/mangas'} className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Mangas</Anchor>}
                             {token && <Anchor to={'/chapter-form/:id_manga'} className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">Chapters</Anchor>}
                             {token && <Anchor to={'/new-role'} className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">New Role</Anchor>}
-
+                            {token && <Anchor to={'/mymangas'} className= "text-white h-[4vh] rounded-[7%] hover:bg-white hover:text-black text-center  text-[1rem] w-[100%] transition duration-1000 ease-in-out cursor-pointer">My mangas</Anchor>}
+                            
 
                         </ul>
                     </div>

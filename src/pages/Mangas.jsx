@@ -5,9 +5,9 @@ import { useSelector, useDispatch } from "react-redux"
 import { Link as Anchor } from 'react-router-dom'
 import inputs_filter_actions from '../store/actions/inputs_filter.js'
 import axios from "axios"
-import apiUrl from "../../api"
-import NavBar from "../components/Navbar"
-import Footer from "../components/Footer"
+import apiUrl from "../../api.js"
+import NavBar from "../components/Navbar.jsx"
+import Footer from "../components/Footer.jsx"
 const { inputs_filter } = inputs_filter_actions
 
 export default function Manga() {
@@ -36,7 +36,7 @@ export default function Manga() {
         .catch(error=>console.log(error))
       }
       async function getCategories(){
-        axios(apiUrl+'categories')
+        axios(apiUrl+'categories', headers)
           .then(res => setCategories(res.data.categories))
           .catch(error => console.log(error))
       }
@@ -53,13 +53,14 @@ export default function Manga() {
     }
     
  
-    console.log(mangas)
+    
 
 
 
   return (
     <>
-    <div className="bg-black text-white w-[100%] h-[100%] flex flex-col pt-14 | lg:h-[1100px]">
+    <NavBar />
+    <div className="bg-black text-white w-[100%] h-[100%] flex flex-col pt-14 | lg:h-[1150px]">
       <div className="lg:grid lg:grid-cols-4">
 
         <div className="text-center lg:col-span-1 lg:text-start lg:px-12 lg:mt-[11rem]">
@@ -67,7 +68,7 @@ export default function Manga() {
           <form ref={category_id} className="text-white flex flex-col gap-2">
             {dmcsCategories?.map(i => 
             <label htmlFor={i.name} key={i._id} className="text-white/60 lg:text-lg">
-              <input defaultChecked={categories.includes(i._id)} type="checkbox" id={i.name} value={i._id} onClick={capture_info}/>
+              <input defaultChecked={categories?.includes(i._id)} type="checkbox" id={i.name} value={i._id} onClick={capture_info}/>
               {i.name}
             </label>
             )}

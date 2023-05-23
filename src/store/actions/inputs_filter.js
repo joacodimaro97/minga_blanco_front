@@ -15,3 +15,5 @@ const inputs_filter = createAction(
 const actions = { inputs_filter }
 
 export default actions
+
+//"actions" Se exporta como objeto por si en algun momento hay mas de una accion poder reutilizarla en toda la aplicacion
